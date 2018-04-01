@@ -1,0 +1,439 @@
+A.Vasquez Cobo	Leticia	Amazonas	25.9	4.9	3.4	84	-4.1939	-69.9409
+Alejandria	Alejandria	Antioquia	19.4	5.1	4.4	1660	6.3763	-75.1434
+Ita Andes	Andes	Antioquia	22.0	6.7	5.3	1180	5.691	-75.8802
+Anori	Anori	Antioquia	19.2	4.6	3.5	1610	7.0719	-75.1505
+Uniban	Apartado	Antioquia	26.6	4.6	3.1	23	7.8261	-76.6514
+Arboletes	Arboletes	Antioquia	27.6	3.1	4.2	4	8.8466	-76.4227
+Progreso El Hda	Barbosa	Antioquia	22.0	6.0	5.6	1500	6.4139	-75.3967
+Tulio Ospina	Bello	Antioquia	22.0	6.0	5.0	1438	6.3211	-75.5525
+Piunti Hda	Buritica	Antioquia	20.7	5.1	5.5	1650	6.7295	-75.913
+Salada La	Caldas	Antioquia	18.3	5.0	5.4	1680	6.0484	-75.6247
+Canasgordas	Canasgordas	Antioquia	21.5	5.3	4.9	1200	6.7581	-76.0297
+Tulenapa	Carepa	Antioquia	26.8	4.3	3.4	30	7.774	-76.6575
+Cacaoteras del Diq	Caucasia	Antioquia	27.9	4.6	4.6	55	7.9833	-75.1167
+Palmera La	Chigorodo	Antioquia	27.3	3.9	4.8	58	7.5383	-76.6056
+Mansa La	Ciudad Bolivar	Antioquia	16.8	4.3	3.8	2100	5.8783	-76.0843
+Concordia	Concordia	Antioquia	18.5	4.7	4.2	1904	6.0397	-75.9197
+Tunez Hda	Fredonia	Antioquia	26.0	6.9	6.4	530	5.8002	-75.651
+Musinga	Frontino	Antioquia	19.9	5.3	4.4	1330	6.7869	-76.1908
+Jardin El	Jardin	Antioquia	17.1	4.9	3.6	2005	5.5877	-75.8006
+Mesopotamia	La Union	Antioquia	14.9	5.5	4.7	2314	5.8864	-75.3186
+A.Olaya Herrera	Medellin	Antioquia	22.5	5.3	5.1	1490	6.2206	-75.589
+Villarteaga	Mutata	Antioquia	26.1	4.0	4.4	132	7.35	-76.4833
+Mellito El	Necocli	Antioquia	26.9	4.2	3.4	10	8.5429	-76.6726
+Penol El	Penol	Antioquia	18.2	5.0	5.4	1956	6.2142	-75.2413
+Apto Pto Berrio	Puerto Berrio	Antioquia	28.5	4.2	5.6	150	6.465	-74.4122
+Apto Otu	Remedios	Antioquia	24.9	4.0	4.8	718	7.0117	-74.7163
+A.J M Cordova	Rionegro	Antioquia	17.0	5.2	4.5	2073	6.1686	-75.4258
+Selva La	Rionegro	Antioquia	16.8	5.8	4.6	2090	6.1317	-75.4147
+San Carlos	San Carlos	Antioquia	22.5	5.2	5.1	1113	6.1577	-75.0389
+San Francisco	San Francisco	Antioquia	21.8	4.2	4.6	1306	5.9637	-75.1008
+Violetas Las	San Rafael	Antioquia	22.8	6.1	4.9	1016	6.3489	-75.0028
+Nus Gja Exp El	San Roque	Antioquia	23.5	4.6	4.9	835	6.4858	-74.8367
+Corrientes	San Vicente	Antioquia	17.4	4.8	4.9	1950	6.3119	-75.2535
+Aragon	Santa Rosa de Osos	Antioquia	13.3	4.9	5.6	2600	6.534	-75.827
+Cotove Hda	Santafe de Antioquia	Antioquia	27.0	7.5	6.6	530	6.5339	-75.8274
+Guayabito	Santo Domingo	Antioquia	21.4	5.1	5.2	1700	6.5408	-75.1469
+Nacional Gja La	Tamesis	Antioquia	22.6	5.0	4.1	1151	5.7202	-75.6943
+Turbo	Turbo	Antioquia	27.3	4.2	3.5	37	8.0918	-76.7163
+Urrao	Urrao	Antioquia	17.4	5.2	3.9	1850	6.3249	-76.1399
+Sta Isabel	Valdivia	Antioquia	21.6	3.5	2.8	1200	7.1573	-75.4423
+Vegachi	Vegachi	Antioquia	22.5	4.7	4.6	995	6.7741	-74.7966
+Rosario El	Venecia	Antioquia	20.2	4.6	4.2	1600	5.9333	-75.7167
+Apto Arauca	Arauca	Arauca	26.9	5.0	4.6	128	7.0694	-70.7381
+Saravena	Saravena	Arauca	25.5	5.0	4.7	148	6.9464	-71.8906
+Tame	Tame	Arauca	26.0	5.6	3.5	350	6.4562	-71.745
+Flores Las	Barranquilla	Atlantico	27.7	2.7	2.0	2	11.0428	-74.8236
+Juan de Acosta	Juan de Acosta	Atlantico	27.8	4.7	3.8	20	10.8465	-75.0489
+Normal Manati	Manati	Atlantico	27.7	6.9	4.0	10	10.4536	-74.9546
+Repelon	Repelon	Atlantico	28.4	6.4	4.4	10	10.5003	-75.1192
+A.E Cortissoz	Soledad	Atlantico	27.6	5.0	3.3	14	10.8833	-74.7798
+Apto El Dorado	Apto El Dorado	Bogota DC	13.7	4.8	4.4	2547	4.7056	-74.1507
+C.Univ.Agrop-Udca	C.Univ.Agrop-Udca	Bogota DC	13.9	5.6	6.7	2570	4.7986	-74.0497
+Villeta	Cundinamarca	Bogota DC	24.7	5.0	5.0	802	5.012	-74.47
+Esc Col Ingenieria	Esc Col Ingenieria	Bogota DC	14.1	5.7	6.0	2650	4.7883	-74.0456
+Jardin Botanico	Jardin Botanico	Bogota DC	15.1	5.4	6.4	2552	4.6693	-74.1027
+Taques Los	Taques Los	Bogota DC	9.2	3.8	4.1	3150	4.1967	-74.1909
+Univ Nacional	Univ Nacional	Bogota DC	14.9	4.5	5.7	2556	4.6381	-74.0891
+Villanueva	Santa Rosa de Viterbo	Boyacá	10.5	5.7	5.8	2951	5.8827	-73.0097
+Santa Rosa de Viterbo	Santa Rosa de Viterbo	Boyacá	12.9	5.4	5.4	2748	5.8745	-72.987
+Sincerin	Arjona	Bolivar	27.7	5.6	4.5	10	10.1426	-75.2783
+Apto Rafael Nunez	Cartagena	Bolivar	27.8	3.5	2.6	2	10.4473	-75.516
+Esc Naval Cioh	Cartagena	Bolivar	27.8	3.0	3.2	1	10.3897	-75.5358
+Carmen de Bolivar	El Carmen de Bolivar	Bolivar	27.4	6.0	5.8	152	9.7157	-75.1064
+Guamo El	El Guamo	Bolivar	28.1	6.3	5.4	75	10.0372	-74.9732
+Apto Baracoa	Magangue	Bolivar	28.1	5.0	4.8	18	9.2819	-74.8453
+Nueva Florida	Maria La Baja	Bolivar	27.2	5.9	4.6	13	9.9406	-75.3508
+San Pablo	Maria La Baja	Bolivar	27.6	5.6	4.5	20	10.0432	-75.2586
+Montecristo	Montecristo	Bolivar	27.9	5.0	6.4	100	8.3	-74.4833
+Pinillos	Pinillos	Bolivar	28.7	4.7	4.6	10	8.9207	-74.4742
+Norosi	Rio Viejo	Bolivar	28.2	5.7	4.9	160	8.5333	-74.05
+Col Cooperativo	San Pablo	Bolivar	28.3	4.6	4.9	165	7.475	-73.9256
+Galerazamba	Santa Catalina	Bolivar	27.4	2.9	2.6	20	10.7949	-75.2617
+Sta Rosa D Simiti	Santa Rosa del Sur	Bolivar	24.9	4.2	3.9	650	7.9653	-74.0592
+Monterrey Forestal	Zambrano	Bolivar	28.3	5.5	5.9	25	9.7353	-74.835
+Beteitiva	Beteitiva	Boyaca	15.2	7.4	6.2	2575	5.9073	-72.8106
+Boavita	Boavita	Boyaca	17.4	6.7	5.9	2150	6.3262	-72.5788
+Buenavista	Buenavista	Boyaca	16.0	3.2	6.0	2200	5.5149	-73.9431
+Campohermoso	Campohermoso	Boyaca	21.1	4.8	3.9	1300	5.0345	-73.1037
+Chiscas	Chiscas	Boyaca	16.9	5.0	6.2	2350	6.5495	-72.5047
+Chita	Chita	Boyaca	11.8	5.4	5.1	2888	6.1883	-72.4663
+Tunebia	Cubara	Boyaca	24.3	5.2	4.1	370	7.0061	-72.1158
+Tunel El	Cuitiva	Boyaca	11.5	4.3	3.8	3000	5.5721	-72.9439
+Surbata Bonza	Duitama	Boyaca	14.2	7.3	7.6	2485	5.8024	-73.0745
+Guican	Guican	Boyaca	13.2	5.8	4.9	2963	6.4635	-72.4092
+Cusagui	La Uvita	Boyaca	12.4	5.4	4.1	2950	6.2453	-72.5454
+Inst Agr Macanal	Macanal	Boyaca	17.2	5.0	3.5	1300	4.9411	-73.3167
+Vivero El	Miraflores	Boyaca	18.8	5.4	4.3	1640	5.1926	-73.1448
+Bertha	Moniquira	Boyaca	19.1	7.2	5.7	1700	5.8833	-73.6
+Belencito	Nobsa	Boyaca	15.6	6.5	6.6	2530	5.7787	-72.8908
+Nuevo Colon	Nuevo Colon	Boyaca	14.4	5.5	4.3	2438	5.3538	-73.4565
+Otanche	Otanche	Boyaca	22.5	4.0	3.9	1070	5.6617	-74.1846
+Tunguavita	Paipa	Boyaca	14.7	6.9	7.4	2470	5.7459	-73.1164
+Corinto	Pajarito	Boyaca	18.8	4.7	4.5	1550	5.4073	-72.7172
+Pto Boyaca	Puerto Boyaca	Boyaca	27.8	4.7	4.6	350	5.9783	-74.5667
+Apto Furatena	Quipama	Boyaca	21.8	5.5	4.0	1250	5.5208	-74.1824
+Villa Luisa	Ramiriqui	Boyaca	16.5	5.4	4.7	2200	5.4222	-73.3494
+Rondon	Rondon	Boyaca	16.0	5.0	3.6	2120	5.3584	-73.2036
+Villa Carmen	Samaca	Boyaca	14.0	5.1	5.3	2600	5.5117	-73.4958
+Inst Agr Sta Sofia	Santa Sofia	Boyaca	16.1	5.5	4.9	2300	5.7107	-73.6023
+Sativanorte	Sativanorte	Boyaca	15.3	5.1	5.2	2594	6.1332	-72.7047
+Cardon El	Socota	Boyaca	6.2	3.3	2.8	3590	6.0117	-72.5293
+Apto A Lleras C	Sogamoso	Boyaca	14.2	7.1	8.3	2500	5.6769	-72.9679
+Sutatenza	Sutatenza	Boyaca	17.8	5.1	4.0	1930	5.0223	-73.4492
+Copa La	Toca	Boyaca	13.5	5.8	6.3	2700	5.5794	-73.2079
+U P T C	Tunja	Boyaca	13.1	5.1	4.4	2690	5.5536	-73.3553
+Villa de Leiva	Villa de Leyva	Boyaca	16.9	6.0	5.9	2215	5.6558	-73.5439
+Pelada La	Aguadas	Caldas	16.7	4.8	4.5	2180	5.5787	-75.3448
+Bellavista	Anserma	Caldas	17.0	4.5	3.6	1932	5.2759	-75.8
+Apto La Nubia	Manizales	Caldas	17.0	4.3	4.6	2058	5.0297	-75.4699
+San Felix	Salamina	Caldas	11.4	5.3	5.3	2696	5.3726	-75.3751
+Samana	Samana	Caldas	19.6	2.7	3.2	1475	5.4183	-74.9928
+Rafael Escobar	Supia	Caldas	22.1	5.6	4.7	1320	5.4667	-75.65
+Brisas Las	Villamaria	Caldas	4.6	3.8	3.4	4150	4.9015	-75.35
+Samaria La	Viterbo	Caldas	24.5	5.2	2.9	1020	5.05	-75.8833
+Mono La	Belen de los Andaquies	Caqueta	25.3	5.1	4.6	300	1.3034	-75.8077
+Maguare	El Doncello	Caqueta	25.5	5.2	4.5	270	1.6402	-75.1627
+Apto G Artunduaga	Florencia	Caqueta	25.8	4.9	4.5	244	1.5891	-75.5596
+Pto Rico	Puerto Rico	Caqueta	25.7	5.0	4.1	285	1.9175	-75.1507
+San Jose de Fragua	San Jose del Fragua	Caqueta	25.2	5.1	4.1	320	1.3251	-75.9615
+S.Vcte Caguan	San Vicente del Caguan	Caqueta	26.0	5.3	4.6	300	2.063	-74.7627
+Tres Esquinas	Solano	Caqueta	25.7	5.1	5.1	219	0.7375	-75.2361
+Valparaiso	Valparaiso	Caqueta	26.1	4.9	4.2	270	1.1952	-75.7045
+Aguazul	Aguazul	Casanare	26.7	4.8	5.1	380	5.1793	-72.5509
+Modulos	Orocue	Casanare	26.7	5.2	5.0	130	4.9105	-71.4331
+Tauramena	Tauramena	Casanare	25.5	4.6	4.6	460	5.0208	-72.7504
+Huerta La Grande	Villanueva	Casanare	25.8	5.3	4.2	255	4.6551	-72.9173
+Apto Yopal	Yopal	Casanare	26.4	4.8	3.8	325	5.3204	-72.3875
+Bolivar	Bolivar	Cauca	21.6	4.7	3.8	1510	1.8299	-77.004
+Milagros Los	Bolivar	Cauca	16.3	5.5	3.3	2300	1.7533	-76.8917
+Venta De Cajibio	Cajibio	Cauca	18.5	6.0	4.8	1850	2.5848	-76.5619
+Apto Guapi	Guapi	Cauca	26.0	4.0	3.9	10	2.5744	-77.8948
+Bonanza	Guapi	Cauca	26.0	3.8	3.2	10	2.5667	-77.8833
+Sierra La	La Sierra	Cauca	17.9	4.4	3.6	1870	2.1938	-76.7503
+Mercaderes	Mercaderes	Cauca	22.9	5.7	4.6	1174	1.7604	-77.1587
+Miranda	Miranda	Cauca	23.5	5.7	5.3	1128	3.2456	-76.2231
+Fonda La Citec	Patia	Cauca	26.3	6.7	6.2	635	2.1461	-77.0459
+Tunia	Piendamo	Cauca	19.1	4.7	4.7	1800	2.6744	-76.5263
+Ing Bengala	Puerto Tejada	Cauca	24.0	5.9	6.1	1000	3.2628	-76.4165
+Valencia	San Sebastian	Cauca	10.7	5.4	4.9	2900	1.9004	-76.6688
+Japio	Santander de Quilichao	Cauca	23.6	5.5	5.2	1015	3.05	-76.45
+Paispamba	Sotara	Cauca	14.0	4.9	3.9	2450	2.25	-76.6119
+Gabriel Lopez	Totoro	Cauca	10.4	4.7	4.2	3000	2.5098	-76.2891
+Aguas Claras	Aguachica	Cesar	28.5	4.4	4.9	208	8.2289	-73.6028
+Motilonia Codazzi	Agustin Codazzi	Cesar	28.8	5.4	5.2	180	10.0044	-73.2529
+Socomba	Becerril	Cesar	27.8	5.7	6.0	170	9.6867	-73.2406
+Chiriguana	Chiriguana	Cesar	28.4	5.3	6.4	40	9.3637	-73.5933
+Col Agro Pailitas	Pailitas	Cesar	27.9	5.2	5.4	50	8.9571	-73.6336
+Rincon El	San Diego	Cesar	26.4	6.1	6.3	350	10.2714	-73.1314
+Apto Alfonso Lopez	Valledupar	Cesar	29.0	5.4	5.3	138	10.4394	-73.2494
+Panamericana	Bahia Solano	Choco	25.8	3.6	3.5	4	6.2233	-77.4044
+Loma La	Bojaya	Choco	26.6	4.3	3.8	20	6.5333	-76.9833
+Apto Condoto	Condoto	Choco	26.1	4.3	3.6	66	5.1	-76.65
+Lloro	Lloro	Choco	26.3	4.5	3.0	90	5.5147	-76.5758
+Noanama	Medio San Juan	Choco	26.0	3.7	3.6	40	4.6882	-76.9343
+Apto El Carano	Quibdo	Choco	26.6	4.0	3.3	53	5.6906	-76.6439
+San Isidro	Rio Quito	Choco	26.3	4.5	3.3	45	5.6263	-76.7497
+Sautata	Riosucio	Choco	27.1	4.7	3.3	2	7.85	-77.1167
+San Jose Palmar	San Jose del Palmar	Choco	20.9	3.3	2.8	1115	4.8985	-76.2319
+Ayapel	Ayapel	Cordoba	27.8	5.0	4.6	22	8.2952	-75.1645
+Turipana	Cerete	Cordoba	27.8	5.0	4.5	20	8.8395	-75.8019
+Chima	Chima	Cordoba	27.5	5.0	4.9	20	9.1508	-75.6221
+Salado El	Cienaga de Oro	Cordoba	28.0	5.5	4.3	40	8.9139	-75.5822
+Doctrina La	Lorica	Cordoba	27.7	4.2	3.4	20	9.3017	-75.9133
+Lorica	Lorica	Cordoba	27.5	5.3	3.7	30	9.2527	-75.8444
+Cuba Hda	Montelibano	Cordoba	27.2	5.8	4.7	50	8.0011	-75.3996
+Univ de Cordoba	Monteria	Cordoba	27.5	5.2	4.0	15	8.7939	-75.8615
+Planeta Rica	Planeta Rica	Cordoba	27.6	5.0	4.5	90	8.3993	-75.5837
+Cristo Rey	Puerto Escondido	Cordoba	27.7	3.2	3.3	15	9.0722	-76.2255
+Colomboy	Sahagun	Cordoba	27.2	5.0	3.8	125	8.7409	-75.4988
+San Bernardo del V	San Bernardo del Viento	Cordoba	27.3	3.7	4.7	22	9.3708	-75.9493
+Sta Teresa	Alban	Cundinamarca	15.5	3.3	3.0	2200	4.8422	-74.4617
+Mercedes Las	Anapoima	Cundinamarca	25.1	5.2	5.9	810	4.5819	-74.5266
+Florida La	Anolaima	Cundinamarca	16.9	3.9	3.4	1915	4.7709	-74.4376
+Acapulco	Bojaca	Cundinamarca	13.1	2.9	3.4	2650	4.6538	-74.3331
+Penas Blancas	Cabrera	Cundinamarca	16.5	5.1	5.5	2050	3.9647	-74.4438
+Bolsa La	Choachi	Cundinamarca	8.4	3.7	3.6	3195	4.5754	-73.9814
+Silos	Choconta	Cundinamarca	12.2	4.9	4.0	2709	5.1177	-73.7014
+Represa Del Neusa	Cogua	Cundinamarca	10.4	5.2	4.3	3100	5.15	-73.9833
+Ramada La	Funza	Cundinamarca	14.4	6.1	5.3	2545	4.7167	-74.1833
+Isla del Santuario	Fuquene	Cundinamarca	14.5	6.8	5.0	2580	5.4673	-73.7348
+Ita Valsalice	Fusagasuga	Cundinamarca	20.4	4.3	4.7	1460	4.3958	-74.3961
+Gacheta	Gacheta	Cundinamarca	19.1	5.0	5.4	1752	4.8304	-73.6465
+Guasca	Guasca	Cundinamarca	13.2	5.1	5.7	2750	4.8799	-73.8681
+Jerusalen	Jerusalen	Cundinamarca	28.1	6.2	6.4	316	4.5648	-74.6963
+Base Aerea Madrid	Madrid	Cundinamarca	13.8	4.8	7.3	2550	4.7288	-74.2725
+Tibaitata	Mosquera	Cundinamarca	13.2	6.3	6.4	2543	4.6914	-74.209
+Checua-Nemocon	Nemocon	Cundinamarca	14.0	5.5	4.9	2580	5.1167	-73.8667
+Cabrera La	Pacho	Cundinamarca	16.8	4.7	3.6	2000	5.1416	-74.1394
+Pandi	Pandi	Cundinamarca	23.8	4.7	4.0	950	4.1927	-74.4874
+Japon El	Paratebueno	Cundinamarca	26.1	4.8	4.3	280	4.377	-73.3013
+Pasca	Pasca	Cundinamarca	15.8	3.7	4.8	2256	4.3101	-74.3118
+Apto Palanquero	Puerto Salgar	Cundinamarca	28.7	4.7	6.3	172	5.4714	-74.6547
+San Cayetano	San Cayetano	Cundinamarca	16.1	4.5	4.4	2150	5.3	-74.0667
+Sabaneta	San Francisco	Cundinamarca	13.7	4.1	3.9	2475	4.9018	-74.3074
+San Jorge Gja	Soacha	Cundinamarca	11.7	4.4	4.8	2900	4.5057	-74.1893
+Primavera La	Subachoque	Cundinamarca	11.6	6.8	5.9	2590	4.85	-74.2167
+Sutatausa	Sutatausa	Cundinamarca	13.6	5.0	3.8	2700	5.25	-73.85
+Providencia Gja	Tenjo	Cundinamarca	13.7	5.7	7.0	2560	4.7924	-74.2009
+Llano Largo	Ubaque	Cundinamarca	11.3	2.5	5.0	2980	4.4828	-74.0303
+Yacopi	Yacopi	Cundinamarca	21.2	4.0	3.8	1347	5.4842	-74.3546
+Pto Inirida	Inirida	Guainia	26.5	5.1	3.9	100	3.8677	-67.9317
+San Jose Guaviare	San Jose del Guaviare	Guaviare	25.7	5.9	3.8	165	2.553	-72.6471
+Betulia La	Agrado	Huila	24.3	6.5	5.3	780	2.2816	-75.7051
+Algeciras	Algeciras	Huila	23.2	6.4	5.5	1155	2.5217	-75.3222
+Altamira	Altamira	Huila	22.9	4.4	4.9	1352	2.0667	-75.8
+Altamira El Grifo	Altamira	Huila	20.8	4.7	3.6	1368	2.0792	-75.7362
+Manila La Hda	Baraya	Huila	27.0	5.4	5.3	600	3.1332	-75.0815
+Potosi Hda	Campoalegre	Huila	25.6	5.7	4.4	680	2.6968	-75.2989
+Zuluaga	Garzon	Huila	20.3	5.7	4.4	1270	2.2525	-75.5294
+Jorge Villamil	Gigante	Huila	19.9	4.8	3.7	1500	2.3667	-75.55
+Resina	Guadalupe	Huila	15.9	4.5	2.7	2102	1.9139	-75.679
+Iquira	Iquira	Huila	23.2	4.4	4.1	1095	2.6522	-75.6292
+Esc Agr La Plata	La Plata	Huila	22.2	6.3	4.7	1070	2.3783	-75.8913
+Apto Benito Salas	Neiva	Huila	27.8	5.1	5.3	439	2.9488	-75.2931
+Juncal El	Palermo	Huila	26.9	5.2	5.2	460	2.8288	-75.3312
+Sevilla	Pitalito	Huila	20.4	5.9	4.9	1320	1.8217	-76.1248
+Parque Arqueologic	San Agustin	Huila	18.2	4.7	4.4	1800	1.8885	-76.295
+Sta Maria	Santa Maria	Huila	21.0	5.3	4.9	1300	2.9426	-75.5838
+Libano El	Suaza	Huila	22.5	5.2	5.4	1045	1.8684	-75.8278
+Portal El	Tello	Huila	22.1	4.1	3.6	1300	3.0149	-75.073
+Villavieja Ffcc	Villavieja	Huila	27.8	6.2	5.8	430	3.2225	-75.2163
+Camp Intercor	Albania	La Guajira	28.0	5.9	5.1	122	11.1312	-72.5314
+Termoguajira	Dibulla	La Guajira	26.7	4.7	5.9	5	11.2525	-73.4114
+Paulina La	Fonseca	La Guajira	28.1	6.1	5.1	170	10.8981	-72.8285
+Mina La	Hatonuevo	La Guajira	28.6	5.0	4.5	80	11.1376	-72.6159
+Esc Agr Carraipia	Maicao	La Guajira	27.1	5.1	4.3	118	11.2164	-72.3669
+Manaure	Manaure	La Guajira	28.8	4.4	4.3	1	11.7811	-72.4802
+Apto A.Padilla	Riohacha	La Guajira	28.3	5.1	4.1	4	11.5282	-72.9177
+Urumita	Urumita	La Guajira	27.8	5.7	5.5	255	10.5599	-73.0088
+Ye La	Cienaga	Magdalena	28.6	4.5	6.5	20	10.9924	-74.2111
+Apto Las Flores	El Banco	Magdalena	28.5	5.3	5.3	34	9.0463	-73.9708
+Media Luna	Pivijay	Magdalena	28.0	6.4	5.9	20	10.51	-74.5067
+Alamos Los	San Sebastian de Buenavista	Magdalena	28.3	6.2	5.6	25	9.3039	-74.2736
+Apto Simon Bolivar	Santa Marta	Magdalena	28.3	4.6	4.2	4	11.1283	-74.2289
+Univ Tec Magdalena	Santa Marta	Magdalena	27.9	4.4	4.9	7	11.2231	-74.1859
+Prado Sevilla	Zona Bananera	Magdalena	27.4	5.8	5.9	18	10.7642	-74.1547
+Guaicaramo	Barranca de Upia	Meta	26.6	5.1	4.9	190	4.4687	-72.9536
+Cabana La Hda	Cumaral	Meta	25.6	5.4	4.1	305	4.3004	-73.3575
+Cooperativa La	Fuente de Oro	Meta	25.4	5.6	4.8	280	3.3667	-73.7
+Holanda La	Granada	Meta	25.6	5.4	4.2	360	3.5163	-73.716
+Macarena La	La Macarena	Meta	25.6	5.3	3.8	350	2.1761	-73.7933
+Lejanias	Lejanias	Meta	23.4	4.8	3.9	680	3.5295	-74.0274
+Mesetas	Mesetas	Meta	24.4	4.6	5.1	620	3.3801	-74.043
+Pto Lleras	Puerto Lleras	Meta	25.9	5.8	4.4	245	3.2677	-73.3732
+Margaritas Las Hda	Puerto Lopez	Meta	26.6	5.6	4.5	150	4.3406	-72.1564
+Barbascal	San Martin	Meta	25.6	5.7	4.4	250	3.6308	-73.3493
+Apto Vanguardia	Villavicencio	Meta	25.6	4.6	4.5	423	4.1634	-73.6205
+Vista Hermosa	Vistahermosa	Meta	26.0	5.0	3.9	325	3.1204	-73.754
+Apto San Luis	Aldana	Narino	11.0	5.0	5.1	2961	0.8571	-77.6778
+Barbacoas	Barbacoas	Narino	25.9	4.1	3.9	60	1.6727	-78.1352
+Apto Antonio Narin	Chachagui	Narino	19.2	4.6	4.4	1816	1.3941	-77.2909
+Bombona	Consaca	Narino	19.9	5.9	4.7	1493	1.1844	-77.4651
+Obonuco	Pasto	Narino	12.9	4.3	3.3	2710	1.1982	-77.3031
+Monopamba	Puerres	Narino	16.7	4.0	3.2	1776	0.8049	-77.3036
+Tanama	Samaniego	Narino	19.8	5.8	5.4	1500	1.3736	-77.5831
+Cccp Dl Pacifico	San Andres de Tumaco	Narino	26.0	3.2	2.4	1	1.8192	-78.73
+San Bernardo	San Bernardo	Narino	15.7	5.7	4.4	2190	1.5387	-77.0326
+Villa Rosa	Sapuyes	Narino	11.4	5.0	5.1	3000	1.0305	-77.6383
+Taminango	Taminango	Narino	17.8	5.2	3.4	1875	1.5492	-77.2675
+Sindagua	Tangua	Narino	13.1	4.3	3.9	2800	1.1076	-77.3894
+Paraiso El	Tuquerres	Narino	11.0	4.6	3.8	3120	1.0706	-77.6369
+Abrego Centro Admo	Abrego	Norte de Santander	20.9	6.2	7.2	1430	8.0872	-73.2231
+Esc Agr Cachira	Cachira	Norte de Santander	17.0	5.2	4.7	1882	7.7353	-73.0517
+Blonay	Chinacota	Norte de Santander	20.3	5.8	4.4	1235	7.5833	-72.6
+Ins Agr Convencion	Convencion	Norte de Santander	21.9	4.2	3.6	1076	8.4706	-73.3439
+Apto Camilo Daza	Cucuta	Norte de Santander	27.2	4.8	4.5	250	7.9303	-72.5092
+Cinera-Villa Olga	Cucuta	Norte de Santander	27.6	4.7	5.3	100	8.1678	-72.4686
+Sta Isabel	Cucuta	Norte de Santander	27.4	4.9	6.9	90	8.2333	-72.4333
+Tarra El	El Tarra	Norte de Santander	27.2	4.9	6.5	180	8.5886	-73.0811
+Risaralda	El Zulia	Norte de Santander	27.6	5.6	5.2	90	8.2333	-72.5333
+Tama Parque Nal	Herran	Norte de Santander	13.7	4.7	4.2	2500	7.4244	-72.4421
+Playa La	La Playa	Norte de Santander	19.9	5.6	4.8	1500	8.2175	-73.235
+Univ Fco P Santand	Ocana	Norte de Santander	21.5	5.4	5.9	1150	8.2378	-73.3222
+Iser Pamplona	Pamplona	Norte de Santander	15.1	4.3	4.9	2340	7.3731	-72.645
+Esperanza La	Ragonvalia	Norte de Santander	16.9	4.7	4.0	1760	7.5697	-72.5339
+Francisco Romero	Salazar	Norte de Santander	22.0	5.6	4.4	1000	7.7667	-72.8
+Salazar	Salazar	Norte de Santander	22.7	4.9	4.3	860	7.7746	-72.8306
+Sardinata	Sardinata	Norte de Santander	26.5	5.5	5.2	320	8.0767	-72.8031
+Silos	Silos	Norte de Santander	12.2	5.8	4.9	2765	7.2075	-72.7533
+Teorama	Teorama	Norte de Santander	21.7	3.8	3.4	1160	8.4422	-73.2853
+Tibu	Tibu	Norte de Santander	27.4	5.5	4.7	50	8.6383	-72.7267
+Michoacan	Colon	Putumayo	15.7	4.9	4.5	2100	1.1789	-76.8836
+Mocoa Acueducto	Mocoa	Putumayo	22.9	4.3	2.8	650	1.1573	-76.6518
+Tagua La	Puerto Leguizamo	Putumayo	25.7	5.0	4.1	153	-0.0608	-74.6652
+Primavera La	Sibundoy	Putumayo	15.5	5.1	4.8	2067	1.1683	-76.9327
+Villagarzon	Villagarzon	Putumayo	24.3	4.9	3.7	440	1.0343	-76.6192
+Apto El Eden	Armenia	Quindio	22.1	5.5	5.3	1229	4.4547	-75.7664
+Bella La	Calarca	Quindio	20.6	4.8	4.4	1450	4.5167	-75.6667
+Apto Matecana	Pereira	Risaralda	21.5	4.8	4.2	1342	4.8159	-75.7339
+Pueblo Rico	Pueblo Rico	Risaralda	18.4	3.9	2.5	1530	5.2338	-76.0311
+Jazmin El	Santa Rosa de Cabal	Risaralda	19.6	5.2	4.2	1600	4.9167	-75.6333
+San Remo	Santa Rosa de Cabal	Risaralda	17.1	4.5	3.4	2000	4.842	-75.5795
+Camelia La	Santuario	Risaralda	19.2	4.4	3.0	1650	5.0802	-75.9669
+Apto El Embrujo	Providencia	San Andres Providencia y Sta C	27.6	2.6	2.0	1	13.35	-81.35
+Albania	Albania	Santander	18.7	4.3	3.9	1690	5.7583	-73.9133
+Apto Yariguies	Barrancabermeja	Santander	27.9	4.2	4.4	126	7.0264	-73.8086
+Univ Ind Santander	Bucaramanga	Santander	23.1	5.1	3.7	1018	7.1447	-73.1222
+Tinaga Gja	Cerrito	Santander	13.6	5.5	5.2	2698	6.8408	-72.7075
+Charala	Charala	Santander	21.3	7.0	5.3	1350	6.2742	-73.1506
+Chima	Chima	Santander	23.6	6.7	5.9	1090	6.355	-73.3683
+Cimitarra	Cimitarra	Santander	27.1	4.6	5.0	300	6.3086	-73.9522
+Carmen El	El Carmen de Chucuri	Santander	24.1	3.5	3.9	815	6.6964	-73.51
+Gambita	Gambita	Santander	18.1	5.2	5.4	1900	5.9447	-73.3436
+Llano Grande	Giron	Santander	25.2	5.5	5.7	777	7.0256	-73.1672
+Laja La	Guadalupe	Santander	21.3	5.0	5.8	1400	6.2372	-73.4154
+Landazuri	Landazuri	Santander	22.8	3.9	5.4	1085	6.2214	-73.8089
+Apto Palonegro	Lebrija	Santander	21.4	4.1	2.8	1189	7.1215	-73.1845
+Esc Agr Mogotes	Mogotes	Santander	18.8	6.6	5.6	1667	6.47	-72.9689
+Palmar El	Palmar	Santander	25.9	5.7	5.9	940	6.5497	-73.292
+Cucharo El	Pinchote	Santander	24.7	6.6	5.9	975	6.5322	-73.1992
+Carare	Puerto Parra	Santander	28.2	4.2	5.2	168	6.6494	-74.0614
+Brisas Las Hda	Puerto Wilches	Santander	28.7	5.2	7.7	138	7.2461	-73.79
+Villa Leiva	Sabana de Torres	Santander	27.6	5.9	4.6	328	7.4561	-73.5372
+Vivero Surata	Surata	Santander	18.5	5.6	4.6	1725	7.3658	-72.9875
+Berlin Automatica	Tona	Santander	8.8	4.9	4.3	3214	7.1869	-72.8686
+Velez Granja	Velez	Santander	16.6	6.3	4.5	2170	5.9972	-73.6728
+Zapatoca	Zapatoca	Santander	18.7	4.6	4.5	1810	6.7928	-73.2827
+Primates	Coloso	Sucre	26.9	5.4	5.2	200	9.5301	-75.3514
+Apto Rafael Barvo	Corozal	Sucre	27.5	5.0	4.8	166	9.3339	-75.2831
+Majagual	Majagual	Sucre	29.1	4.7	7.3	20	8.5464	-74.6403
+Univ de Sucre	Sampues	Sucre	26.9	5.3	4.1	160	9.2117	-75.4022
+San Benito Abad	San Benito Abad	Sucre	28.2	4.2	4.9	20	8.9353	-75.0364
+Salto El	Ambalema	Tolima	28.8	5.2	5.8	450	4.7837	-74.7679
+Armero Gja	Armero	Tolima	28.2	5.3	7.2	300	5.0027	-74.9105
+Mesa de Pole	Ataco	Tolima	26.2	5.2	6.1	500	3.4587	-75.5397
+Cajamarca	Cajamarca	Tolima	18.8	4.9	4.9	1920	4.4415	-75.4246
+Demostracion Gja	Chaparral	Tolima	24.4	5.3	4.6	1040	3.7225	-75.5035
+Media Luna	Coyaima	Tolima	28.3	5.0	4.8	485	3.7738	-75.1198
+Dolores Hda Madron	Dolores	Tolima	21.1	3.5	3.4	1456	3.5331	-74.9058
+Apto Santiago Vila	Flandes	Tolima	28.7	5.0	5.6	286	4.2776	-74.7984
+Guamo	Guamo	Tolima	27.9	5.1	5.2	360	4.0089	-74.9813
+Esperanza La	Honda	Tolima	27.7	5.6	5.5	222	5.2628	-74.7292
+Apto Perales	Ibague	Tolima	24.0	4.8	4.9	928	4.4301	-75.1484
+Garcia Hda	Lerida	Tolima	27.8	5.3	5.9	350	4.8554	-74.8916
+Base Aerea Melgar	Melgar	Tolima	27.9	5.6	6.9	319	4.2122	-74.6368
+Anchique	Natagaima	Tolima	28.1	5.7	4.9	415	3.5738	-75.109
+Pst de Monta	Prado	Tolima	28.0	5.2	5.8	349	3.7876	-74.9169
+Relator	Rioblanco	Tolima	22.9	5.1	4.6	1200	3.5292	-75.6315
+Riomanso	Rovira	Tolima	17.0	4.6	4.5	2020	4.2016	-75.2845
+Jabalcon	Saldana	Tolima	28.0	5.1	5.6	425	3.8558	-75.0157
+San Antonio Quinta	San Antonio	Tolima	21.4	4.4	5.0	1500	3.9069	-75.488
+Apto Mariquita	San Sebastian de Mariquita	Tolima	26.5	4.9	6.2	475	5.2097	-74.8864
+Valle de San Juan	Valle de San Juan	Tolima	26.2	6.1	4.7	650	4.2169	-75.1044
+Villahermosa	Villahermosa	Tolima	16.9	3.3	3.1	2029	5.0267	-75.1172
+Argelia El Recreo	Argelia	Valle del Cauca	20.4	6.2	4.9	1600	4.7333	-76.1167
+Colpuertos	Buenaventura	Valle del Cauca	26.3	3.6	2.7	10	3.8833	-77.0667
+San Marcos	Bugalagrande	Valle del Cauca	23.3	6.1	5.8	1002	4.239	-76.0332
+Base Aerea MFS	Cali	Valle del Cauca	25.2	4.8	5.5	954	3.4573	-76.5032
+Univ del Valle	Cali	Valle del Cauca	24.5	5.4	5.2	985	3.378	-76.5338
+Tenerife	El Cerrito	Valle del Cauca	13.6	4.1	3.6	2609	3.7299	-76.0748
+Cenicana	Florida	Valle del Cauca	23.6	5.9	4.9	1013	3.3607	-76.2994
+Vinculo El	Guadalajara de Buga	Valle del Cauca	23.6	6.3	4.8	979	3.8352	-76.2995
+Cent Admo La Union	La Union	Valle del Cauca	24.3	6.3	5.5	920	4.5313	-76.0622
+Apto A Bonilla	Palmira	Valle del Cauca	23.9	5.8	5.0	961	3.5333	-76.3856
+Palmira Ica	Palmira	Valle del Cauca	23.6	5.8	4.5	1050	3.5134	-76.315
+Cumbarco	Sevilla	Valle del Cauca	18.9	4.5	3.8	1692	4.185	-75.8324
+Apto Farfan	Tulua	Valle del Cauca	23.9	6.0	5.4	955	4.0904	-76.2231
+Buitrera La	Yumbo	Valle del Cauca	20.7	5.5	4.3	1500	3.5833	-76.5667
+Ing Riopaila	Zarzal	Valle del Cauca	24.3	6.8	6.0	941	4.3182	-76.0824
+Gaviotas Las	Cumaribo	Vichada	26.1	5.4	4.0	171	4.5539	-70.9301
+Apto Pto Carreno	Puerto Carreno	Vichada	28.5	4.8	4.6	50	6.1824	-67.4912
+Apto Los Cedros	Carepa	Antioquia	27.3	3.9	4.0	19	7.8	-76.7
+Caseri	Caucasia	Antioquia	27.8	5.1	4.9	400	7.8	-74.9
+Miguel Valencia	Jardin	Antioquia	19.2	6.2	4.2	1570	5.5	-75.9
+Honda La	Urrao	Antioquia	16.8	4.8	4.1	1850	6.4	-76.2
+Canelos	Santa Rosa del Sur	Bolivar	22.0	5.0	4.4	750	7.9	-74.2
+Macagual	Florencia	Caqueta	25.0	5.4	3.7	280.0	1.5	-75.7
+Sta Rosa Caguan	San Vicente del Caguan	Caqueta	25.7	6.0	4.0	240.0	1.7	-74.8
+Araracuara	Solano	Caqueta	25.8	5.3	3.8	150.0	-0.6	-72.4
+Gorgona	Guapi	Cauca	26.1	3.0	2.7	10.0	3.0	-78.2
+Gja Exp Univ Narin	Mercaderes	Cauca	26.1	7.1	5.5	580.0	1.9	-77.2
+Ing Cauca	Miranda	Cauca	23.5	6.3	4.9	1000.0	3.3	-76.3
+Paletara	Purace	Cauca	11.3	4.0	5.1	2900.0	2.2	-75.5
+Sta Leticia	Purace	Cauca	15.9	3.7	4.2	2085.0	2.2	-76.2
+Centenario Hda	Agustin Codazzi	Cesar	27.9	6.3	5.6	100.0	9.9	-73.3
+Callao El	Valledupar	Cesar	28.3	6.2	5.6	110.0	10.4	-73.3
+Guaymaral	Valledupar	Cesar	29.8	5.5	5.9	50.0	9.9	-73.6
+Villa Rosa	Valledupar	Cesar	28.9	5.7	5.6	70.0	10.2	-73.5
+Apto Los Garzones	Monteria	Cordoba	28.1	5.0	5.0	20.0	8.8	-75.8
+Primavera D Matima	Anolaima	Cundinamarca	17.5	3.6	3.4	1850.0	4.8	-74.4
+Tabio	Tabio	Cundinamarca	13.6	5.7	4.7	2620.0	4.8	-73.9
+Trueno El	San Jose del Guaviare	Guaviare	25.3	6.1	4.1	150.0	2.4	-72.6
+Sto Domingo	Baraya	Huila	23.0	4.8	4.4	1275.0	3.2	-74.9
+Hidrobetania	Campoalegre	Huila	27.2	4.3	5.5	500.0	2.7	-75.4
+Rosales Los	Campoalegre	Huila	26.5	5.6	5.1	553.0	2.6	-75.4
+Legiosa La	Colombia	Huila	18.9	3.9	2.7	1476.0	3.3	-74.7
+Sta Ana	Colombia	Huila	19.8	5.3	4.0	1410.0	3.6	-74.7
+Terpeya Colombia	Iquira	Huila	18.9	4.3	3.2	1650.0	2.7	-75.7
+Julia La	Neiva	Huila	18.7	4.2	3.5	1691	3.1	-75.5
+Palacio-Vegalarga	Neiva	Huila	22.4	5.0	3.9	1100	2.9	-75.1
+San Alfonso	Villavieja	Huila	28.5	5.8	5.6	440	3.4	-75.1
+San Jose	Villavieja	Huila	28.7	4.6	5.4	400	3.3	-75.2
+Matitas	Riohacha	La Guajira	27.5	6.3	4.9	20	11.3	-73.0
+Nazareth	Uribia	La Guajira	27.1	4.8	2.7	85	12.2	-71.3
+Pto Bolivar	Uribia	La Guajira	28.4	4.5	2.5	10	12.2	-72.0
+Rancho Grande	Uribia	La Guajira	29.0	4.2	3.5	50	11.7	-71.8
+Seis El	San Sebastian de Buenavista	Magdalena	28.8	5.3	6.2	50	9.4	-74.2
+Alto de Mira	Santa Marta	Magdalena	20.9	4.1	2.6	1080	11.1	-73.9
+Parque Tayrona	Santa Marta	Magdalena	26.4	4.0	3.8	30	11.3	-73.9
+San Lorenzo	Santa Marta	Magdalena	13.6	4.2	4.2	2200	11.1	-74.0
+Padelma	Zona Bananera	Magdalena	27.8	6.0	5.8	20	10.7	-74.2
+Balsora La	La Macarena	Meta	25.2	5.3	4.5	372	2.4	-73.9
+Libertad La	Villavicencio	Meta	25.8	5.1	4.0	336	4.1	-73.5
+Unillanos	Villavicencio	Meta	25.3	5.3	4.2	340	4.1	-73.6
+Altaquer	Barbacoas	Narino	20.5	3.3	2.5	1010	1.2	-78.1
+Ospina Perez	Consaca	Narino	19.5	5.8	4.5	1700	1.3	-77.5
+Botana	Pasto	Narino	12.3	4.6	3.5	2820	1.2	-77.3
+Encano El	Pasto	Narino	11.6	4.2	3.4	2830	1.2	-77.2
+Mira El Gja	San Andres de Tumaco	Narino	25.6	4.4	2.9	16	1.6	-78.7
+Carmen de Tonchala	Cucuta	Norte de Santander	27.4	5.0	5.6	285	7.8	-72.6
+Apto Aguas Claras	Ocana	Norte de Santander	21.3	5.6	5.2	1435	8.3	-73.4
+Petrolea	Tibu	Norte de Santander	28.3	4.8	7.2	62	8.5	-72.6
+Pto Leguizamo	Puerto Leguizamo	Putumayo	25.6	5.1	3.2	147	0.2	-74.8
+Pto Ospina	Puerto Leguizamo	Putumayo	25.5	4.8	4.3	190	0.1	-74.9
+Pto Umbria	Villagarzon	Putumayo	25.0	5.6	3.9	358	0.8	-76.6
+Bohemia La	Pereira	Risaralda	23.9	6.2	4.8	970	4.9	-75.9
+Cedral El	Pereira	Risaralda	15.2	4.4	3.7	2120	4.8	-75.5
+Veracruz	Pereira	Risaralda	18.8	5.0	4.2	1720	4.9	-75.6
+Centro El	Barrancabermeja	Santander	27.5	5.4	4.8	162	6.9	-73.8
+Campo Capote	Puerto Parra	Santander	26.8	5.8	4.1	180	6.6	-73.9
+Cachiri	Surata	Santander	17.7	5.0	4.5	1850	7.5	-73.0
+Limon El	Chaparral	Tolima	23.4	5.5	5.0	1000	3.7	-75.6
+Chicoral	Espinal	Tolima	27.4	4.7	5.3	475	4.2	-75.0
+Nataima	Espinal	Tolima	28.1	4.4	5.6	431	4.2	-75.0
+Perales Hato Opia	Ibague	Tolima	25.2	5.0	5.6	750	4.4	-75.1
+Quinta La	Lerida	Tolima	27.2	5.1	5.7	500	4.8	-74.9
+Apto Planadas	Planadas	Tolima	22.3	4.7	5.2	1355	3.2	-75.7
+Rosales Fca Los	Planadas	Tolima	16.1	4.5	3.3	2040	3.2	-75.8
+Lozania	Purificacion	Tolima	26.4	5.6	5.8	400	3.9	-74.8
+Sta Helena	Purificacion	Tolima	27.5	5.0	4.9	300	4.0	-74.9
+Albania	San Sebastian de Mariquita	Tolima	25.0	3.6	4.7	500	5.3	-74.9
+Apto Buenaventura	Buenaventura	Valle del Cauca	26.0	4.3	3.2	14	3.8	-77.0
+Bajo Calima	Buenaventura	Valle del Cauca	25.8	4.2	3.2	50	4.0	-77.0
+Mision La	Buenaventura	Valle del Cauca	25.7	3.7	2.6	5	4.2	-77.3
+Julio Fernandez	Restrepo	Valle del Cauca	20.0	5.7	3.5	1360	3.8	-76.5
+Barragan	Tulua	Valle del Cauca	11.7	4.3	4.1	2902	4.0	-75.9
+Mateguadua	Tulua	Valle del Cauca	22.6	6.9	5.2	1025	4.0	-76.2
+Tapon El	Cumaribo	Vichada	26.5	5.7	4.6	315	5.1	-69.1
+Tuparro Bocas Tomo	Cumaribo	Vichada	27.5	5.4	4.9	250	5.4	-67.9

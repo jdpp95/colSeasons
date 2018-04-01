@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000"
+    tools:context="com.example.android.colseasons.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/elevText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Altitud (msnm)"
+            android:textSize="18dp"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/elevation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="N/A"
+            android:textSize="24dp"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15px"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha"
+            android:textSize="18dp"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_margin="10dp"
+            android:padding="5dp"
+            android:layout_height="wrap_content">
+
+            <Spinner
+                android:id="@+id/año"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_weight="0"
+                android:background="#ffffff"
+                android:backgroundTint="#ffffff"
+                android:entries="@array/años" />
+
+            <Spinner
+                android:id="@+id/mes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:backgroundTint="#ffffff"
+                android:entries="@array/meses" />
+
+            <Spinner
+                android:id="@+id/dia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_weight="0"
+                android:background="#ffffff"
+                android:backgroundTint="#ffffff" />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="cambiar fecha"
+            android:backgroundTint="@android:color/darker_gray"
+            android:onClick="enableDatePicker"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15px"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/diffText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diferencia de temperatura"
+                android:textSize="18dp"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/diff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="N/A"
+                android:textSize="24dp"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
