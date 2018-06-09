@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -426,6 +427,18 @@ public class MainActivity extends AppCompatActivity {
         return start1 + (end1 - start1) * proporcion;
     }
 
+    //Listener
+    public void hogwarts(View v)
+    {
+        if (((CheckBox)v).isChecked())
+        {
+            mes = mes%12 + 1;
+        } else {
+            mes = mes - 1;
+            if (mes == 0) mes = 12;
+        }
+    }
+
     //Updates seasonal temperature (Should be updated at least every minute)
     public void updateTemperature(boolean init) {
 
@@ -439,6 +452,15 @@ public class MainActivity extends AppCompatActivity {
         Random rnd = new Random(seed);
         double oscilacionAnual = (avgTemp * -0.6485 + 28.712) * (osD + osN) / 10;
         double tempMediaAnual = (avgTemp * 5000 - 29571) / 4117;
+
+        CheckBox hogwarts = (CheckBox)findViewById(R.id.hogwarts);
+
+        if(hogwarts.isChecked())
+        {
+            oscilacionAnual = 13.0;
+            tempMediaAnual = 9.0;
+        }
+
         double todayTemp, tomorrowTemp;
 
         double dateDebug = today.get(Calendar.DAY_OF_YEAR);
@@ -473,7 +495,9 @@ public class MainActivity extends AppCompatActivity {
 
         temperatura = transicion(todayTemp, tomorrowTemp, 0, 1, porcentaje);
 
-        if(altitud != 0)
+        if (hogwarts.isChecked())
+            textDiff.setText(formatNumber(temperatura, 0) + "° C");
+        else if(altitud != 0)
             textDiff.setText(formatNumber(temperatura - avgTemp,1) + " °C");
          else
             textDiff.setText("-- °C");

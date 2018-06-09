@@ -132,6 +132,16 @@
 
     </LinearLayout>
 
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/hogwarts"
+            android:text="Hogwarts"
+            android:textColor="@android:color/white"
+            android:textAlignment="center"
+            android:onClick="hogwarts"
+            />
+
     </LinearLayout>
 
 </ScrollView>
