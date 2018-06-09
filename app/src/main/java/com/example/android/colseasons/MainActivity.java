@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     public Calendar time, today;
     boolean monthFirst = true;
     boolean ini = true;
+    double[] weights;
 
     public double latitud, longitud, altitud, porcentaje, avgTemp, hora, osD, osN, temperatura;
     public int seconds = 0;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         //getWindow().setSoftInputMode(
           //      WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
         } else {
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         spinnerDia = (Spinner) findViewById(R.id.dia);
         spinnerMes = (Spinner) findViewById(R.id.mes);
         spinnerAño = (Spinner) findViewById(R.id.año);
+        weights = new double[3];
 
         today = getDateForToday();
         año = today.get(Calendar.YEAR); spinnerAño.setSelection(2018-año); spinnerAño.setEnabled(false);
@@ -176,34 +179,45 @@ public class MainActivity extends AppCompatActivity {
 
                             seconds = (seconds + 1) % 10;
                             //tsnm[0,1,2] = values, tsnm[3] = weighted average
-                            double weights[] = new double[3];
-                            double weightSum = 0;
+                            double weightsDist[] = new double[3];
+                            double weightsAlt[] = new double[3];
+                            double altDiff[] = new double[3];
+
+                            double weightsDistSum = 0, weightsAltSum = 0;
                             for (int i = 0; i < 3; i++) {
                                 float results[] = new float[3];
                                 if (nearestS[i] != null) {
                                     temp[i][0] = nearestS[i].getTemperatura() + nearestS[i].getAltitud() / 180;
                                     temp[i][1] = nearestS[i].getOsD();
                                     temp[i][2] = nearestS[i].getOsN();
+
                                     Location.distanceBetween(latitud, longitud, nearestS[i].getLatitud(), nearestS[i].getLongitud(), results);
-                                    weights[i] = 1 / results[0];
-                                    weightSum += weights[i];
+                                    weightsDist[i] = 1 / results[0]; // 1/Dist
+                                    weightsDistSum += weightsDist[i];
+
+                                    altDiff[i] = Math.abs(altitud - nearestS[i].getAltitud());
+                                    weightsAlt[i] = 1 / altDiff[i];
+                                    weightsAltSum += weightsAlt[i];
                                 }
                             }
 
-                            for(int i=0;i<3;i++)
-                                temp[3][i] = 0;
+                            for(int i=0;i<3;i++) {
+                                weights[i] = (weightsAlt[i]/weightsAltSum + weightsDist[i]/weightsDistSum)/2;
+                                //temp[3][i] = 0;
+                            }
 
                             //Normalize weights
+
                             for (int i = 0; i < 3; i++) {
+                                /*
                                 if (weightSum > 0)
                                     weights[i] /= weightSum;
+                                    */
 
                                 //Log.v("Distance to " + nearestS[i], formatNumber(weights[i] * 100, 0) + "% from "+ estaciones.size() +" stations.");
                                 for(int j=0;j<3;j++)
                                     temp[3][j] += temp[i][j] * weights[i];
                             }
-
-                            //Log.v("\n ","");
 
                         }
 
