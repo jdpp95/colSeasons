@@ -293,6 +293,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Rounds a decimal number to a given number of decimals
     public String formatNumber(double number, int decimalPlaces) {
+        if (Double.isNaN(number)) return "NaN";
         BigDecimal bd = new BigDecimal(number);
         return bd.setScale(decimalPlaces, BigDecimal.ROUND_HALF_UP).toString();
     }
@@ -505,7 +506,7 @@ public class MainActivity extends AppCompatActivity {
         colorear(temperatura * 1.8 + 32);
     }
 
-    public long parseSeed(Calendar time)
+    public static long parseSeed(Calendar time)
     {
         int day, month, year;
         day = time.get(Calendar.DATE);
@@ -526,7 +527,50 @@ public class MainActivity extends AppCompatActivity {
 
         long seed = Long.parseLong(semilla);
 
+        String binary = Long.toBinaryString(seed);
+
+        //System.out.println(binary);
+        seed = CBC(binary);
+        //seed = Long.parseLong(binary,2);
+
         return seed;
+    }
+
+    public static long CBC(String s)
+    {
+        ArrayList<Short> M = new ArrayList<>();
+        ArrayList<Short> C = new ArrayList<>();
+
+        String m = "";
+        for (int i=s.length() - 1; i >= 0; i--)
+        {
+            m += s.charAt(i);
+            if ((s.length() - i)%4 == 0 || i == 0)
+            {
+                M.add(Short.parseShort(m,2));
+                m = "";
+            }
+        }
+
+        C.add((short)0b1010);
+        for (int i=0; i < M.size(); i++){
+            C.add(Epi((short)(C.get(i)^M.get(i))));
+        }
+
+        String binary = "";
+        for (Short c : C)
+        {
+            binary += Integer.toBinaryString(c);
+        }
+
+        return Long.parseLong(binary,2);
+    }
+
+    public static short Epi(short nibble)
+    {
+        boolean odd = nibble > 7;
+        nibble = (short)(nibble << 1);
+        return odd? ++nibble : nibble;
     }
 
     public boolean añoBisiesto(int año){
