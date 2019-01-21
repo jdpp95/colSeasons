@@ -13,135 +13,270 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15px"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/elevText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Altitud (msnm)"
-            android:textSize="18dp"
-            android:textColor="@android:color/white"
-            android:layout_gravity="center"/>
-
-        <TextView
-            android:id="@+id/elevation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="N/A"
-            android:textSize="24dp"
-            android:textColor="@android:color/white"
-            android:layout_gravity="center"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15px"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/dateText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fecha"
-            android:textSize="18dp"
-            android:textColor="@android:color/white"
-            android:layout_gravity="center"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_margin="10dp"
-            android:padding="5dp"
-            android:layout_height="wrap_content">
-
-            <Spinner
-                android:id="@+id/año"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_weight="0"
-                android:background="#ffffff"
-                android:backgroundTint="#ffffff"
-                android:entries="@array/años" />
-
-            <Spinner
-                android:id="@+id/mes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_weight="1"
-                android:background="#ffffff"
-                android:backgroundTint="#ffffff"
-                android:entries="@array/meses" />
-
-            <Spinner
-                android:id="@+id/dia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_weight="0"
-                android:background="#ffffff"
-                android:backgroundTint="#ffffff" />
-
-        </LinearLayout>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="cambiar fecha"
-            android:backgroundTint="@android:color/darker_gray"
-            android:onClick="enableDatePicker"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15px"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="15px">
 
             <TextView
-                android:id="@+id/diffText"
+                android:id="@+id/elevText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Diferencia de temperatura"
-                android:textSize="18dp"
+                android:layout_gravity="center"
+                android:text="Altitud (msnm)"
                 android:textColor="@android:color/white"
-                android:layout_gravity="center"/>
+                android:textSize="18dp"/>
 
             <TextView
-                android:id="@+id/diff"
+                android:id="@+id/elevation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="N/A"
-                android:textSize="24dp"
                 android:textColor="@android:color/white"
-                android:layout_gravity="center"/>
+                android:textSize="24dp"/>
 
         </LinearLayout>
 
-    </LinearLayout>
-
-        <CheckBox
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/hogwarts"
-            android:text="Hogwarts"
-            android:textColor="@android:color/white"
-            android:textAlignment="center"
-            android:onClick="hogwarts"
-            />
+            android:orientation="vertical"
+            android:padding="15px">
 
+            <TextView
+                android:id="@+id/dateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Fecha"
+                android:textColor="@android:color/white"
+                android:textSize="18dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:padding="5dp">
+
+                <Spinner
+                    android:id="@+id/año"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_weight="0"
+                    android:background="#ffffff"
+                    android:backgroundTint="#ffffff"
+                    android:entries="@array/años" />
+
+                <Spinner
+                    android:id="@+id/mes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:backgroundTint="#ffffff"
+                    android:entries="@array/meses" />
+
+                <Spinner
+                    android:id="@+id/dia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_weight="0"
+                    android:background="#ffffff"
+                    android:backgroundTint="#ffffff" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/darker_gray"
+                    android:onClick="enableDatePicker"
+                    android:text="cambiar fecha"/>
+
+                <CheckBox
+                    android:id="@+id/diffCheck"
+                    style="@style/Base.Widget.AppCompat.CompoundButton.CheckBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:onClick="checkDiff"
+                    android:text="Mostrar diferencia"
+                    android:textColor="@android:color/white"
+                    app:buttonTint="#ffffff"
+                    />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/diffDisplay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15px">
+
+                <TextView
+                    android:id="@+id/diffText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Diferencia de temperatura"
+                    android:textColor="@android:color/white"
+                    android:textSize="18dp"/>
+
+                <TextView
+                    android:id="@+id/diff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:onClick="showHourlyReport"
+                    android:text="N/A"
+                    android:textColor="@android:color/white"
+                    android:textSize="24dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/temperatureDisplay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20px"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <RadioGroup
+                        android:id="@+id/radioScale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:onClick="selectorEscala"
+                        android:paddingRight="15dp">
+
+                        <RadioButton
+                            android:id="@+id/celsius"
+                            style="@style/radios"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="°C"
+                            app:buttonTint="#ffffff" />
+
+                        <RadioButton
+                            android:id="@+id/raw"
+                            style="@style/radios"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="raw"
+                            app:buttonTint="#ffffff" />
+
+                        <RadioButton
+                            android:id="@+id/fahrenheit"
+                            style="@style/radios"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="°F"
+                            app:buttonTint="#ffffff" />
+
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#ffffff"
+                        android:gravity="center"
+                        android:padding="15dp"
+                        android:onClick="viewStations"
+                        android:text="-- °C"
+                        android:textColor="#000000"
+                        android:textSize="24dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp">
+
+                    <LinearLayout
+                        android:id="@+id/thermoBox"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/tags"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Lectura Termometro"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/thermometer"
+                            android:layout_width="48dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:inputType="numberDecimal"
+                            android:text=""
+                            android:textColor="#ffffff"
+                            android:textColorHint="#B0B0B0" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/tags"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Temperatura real"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/actualT"
+                            android:layout_width="48dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:inputType="numberDecimal"
+                            android:text=""
+                            android:textColor="#ffffff"
+                            android:textColorHint="#B0B0B0" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-
 </ScrollView>

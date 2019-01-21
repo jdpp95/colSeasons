@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
@@ -18,20 +19,26 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioGroup;
+import android.widget.CheckBox;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import org.apache.commons.math3.distribution.NormalDistribution;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,24 +47,28 @@ public class MainActivity extends AppCompatActivity {
     public Calendar time, today;
     boolean monthFirst = true;
     boolean ini = true;
+    boolean report = false;
     double[] weights;
 
     public double latitud, longitud, altitud, porcentaje, avgTemp, hora, osD, osN, temperatura;
     public int seconds = 0;
     public ArrayList<Estacion> estaciones;
     public Estacion[] nearestS;
+    public ArrayList<TempStamp> randomDayArray;
 
-    TextView textAltitud, textDiff;
+    TextView textAltitud, textDiff, textTemperatura;
 
-    private final int[] añoNormal = {31,28,31,30,31,30,31,31,30,31,30,31};
-    private final int[] añoBisiesto = {31,29,31,30,31,30,31,31,30,31,30,31};
+    //private final int[] añoNormal = {31,28,31,30,31,30,31,31,30,31,30,31};
+    //private final int[] añoBisiesto = {31,29,31,30,31,30,31,31,30,31,30,31};
+    private final int añoActual = 2019;
+    private final int SHORT = 0, LONG = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.v("Debug","Marco");
+        //Log.v("Debug","Marco");
         setContentView(R.layout.activity_main);
-        Log.v("Debug","Polo");
+        //Log.v("Debug","Polo");
         //getWindow().setSoftInputMode(
           //      WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
@@ -71,15 +82,16 @@ public class MainActivity extends AppCompatActivity {
         time = Calendar.getInstance();
         textAltitud = (TextView) findViewById(R.id.elevation);
         textDiff = (TextView) findViewById(R.id.diff);
+        textTemperatura = (TextView) findViewById(R.id.temperature);
         spinnerDia = (Spinner) findViewById(R.id.dia);
         spinnerMes = (Spinner) findViewById(R.id.mes);
         spinnerAño = (Spinner) findViewById(R.id.año);
         weights = new double[3];
-
-        today = getDateForToday();
-        año = today.get(Calendar.YEAR); spinnerAño.setSelection(2018-año); spinnerAño.setEnabled(false);
+        today = getAlternativeDate(Calendar.getInstance());
+        año = today.get(Calendar.YEAR); spinnerAño.setSelection(añoActual-año); spinnerAño.setEnabled(false);
         mes = today.get(Calendar.MONTH); spinnerMes.setSelection(mes); spinnerMes.setEnabled(false);
         dia = time.get(Calendar.DATE);
+        randomDayArray = new ArrayList<>();
 
         spinnerDia.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -90,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 time = Calendar.getInstance();
-                dia = time.get(Calendar.DATE);
+                //dia = time.get(Calendar.DATE);
             }
         });
 
@@ -134,6 +146,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 año = Integer.parseInt((String) spinnerAño.getSelectedItem());
+                if(ini)
+                    setRandomDayArray(SHORT);
+                else
+                    setRandomDayArray(LONG);
             }
 
             @Override
@@ -171,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                         altitud = 2574;
                         */
 
-                        if (seconds == 0) updateTime();
+                        if (seconds%2 == 0) updateTime();
                         if (seconds == 5) nearestS = nearestStations();
 
                         if(nearestS == null)
@@ -226,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
                         osD = temp[3][1];
                         osN = temp[3][2];
 
-                        updateTemperature(ini);
+                        updateTemperature();
                         textAltitud.setText(formatNumber(altitud,0));
                     }
                 });
@@ -408,10 +424,24 @@ public class MainActivity extends AppCompatActivity {
 
         TextView[] texts = {elevText, dateText, diffText, textAltitud, textDiff};
 
-        if(altitud != 0)
-            main.setBackgroundColor(Color.rgb(rgb[0],rgb[1],rgb[2]));
-        else
+
+        if(altitud != 0) {
+            if(diffEnabled())
+                main.setBackgroundColor(Color.rgb(rgb[0], rgb[1], rgb[2]));
+            else {
+                textTemperatura.setBackgroundColor(Color.rgb(rgb[0], rgb[1], rgb[2]));
+                main.setBackgroundColor(Color.BLACK);
+
+                if (temperatura > 25 && temperatura < 35 || temperatura > 60 && temperatura < 80)
+                    textTemperatura.setTextColor(Color.BLACK);
+                else
+                    textTemperatura.setTextColor(Color.WHITE);
+            }
+        } else {
             main.setBackgroundColor(Color.BLACK);
+            textTemperatura.setBackgroundColor(Color.WHITE);
+            textTemperatura.setTextColor(Color.BLACK);
+        }
 
         for(int i=0; i<texts.length; i++)
             if (temperatura > 25 && temperatura < 35 || temperatura > 60 && temperatura < 80)
@@ -428,82 +458,148 @@ public class MainActivity extends AppCompatActivity {
         return start1 + (end1 - start1) * proporcion;
     }
 
-    //Listener
-    public void hogwarts(View v)
+    public double computeTemperature(Calendar today, boolean real)
     {
-        if (((CheckBox)v).isChecked())
-        {
-            mes = mes%12 + 1;
-        } else {
-            mes = mes - 1;
-            if (mes == 0) mes = 12;
-        }
-    }
-
-    //Updates seasonal temperature (Should be updated at least every minute)
-    public void updateTemperature(boolean init) {
-
-        Calendar today = Calendar.getInstance();
-
-        today.set(año, mes - 1, dia);
+        //Calendar today = Calendar.getInstance();
+        Calendar previous = Calendar.getInstance();
+        Calendar next = Calendar.getInstance();
 
         long seed = parseSeed(today);
-        Log.v("Seed Value", String.valueOf(seed));
+        //Log.v("Seed Value", String.valueOf(seed));
 
-        Random rnd = new Random(seed);
+        //Random rnd = new Random(seed);
         double oscilacionAnual = (avgTemp * -0.6485 + 28.712) * (osD + osN) / 10;
         double tempMediaAnual = (avgTemp * 5000 - 29571) / 4117;
+        double prevTemp, nextTemp, prevRandom = 0, nextRandom = 0;
+        long previousDateMillis = 0, nextDateMillis = 0;
+        int index = 0;
 
-        CheckBox hogwarts = (CheckBox)findViewById(R.id.hogwarts);
-
-        if(hogwarts.isChecked())
+        for(TempStamp ts : randomDayArray)
         {
-            oscilacionAnual = 13.0;
-            tempMediaAnual = 9.0;
+            nextDateMillis = ts.getTimestamp();
+            nextRandom = ts.getRandom();
+            if(previousDateMillis == 0)
+            {
+                previousDateMillis = nextDateMillis; //First iteration
+                prevRandom = nextRandom;
+            }
+
+            if(nextDateMillis > today.getTimeInMillis())
+                if(index > 0)
+                    break;
+
+            previousDateMillis = nextDateMillis;
+            prevRandom = nextRandom;
+            index++;
+        }
+        previous.setTimeInMillis(previousDateMillis);
+        next.setTimeInMillis(nextDateMillis);
+
+        if(!real){
+            previous = getAlternativeDate(previous);
+            next = getAlternativeDate(next);
         }
 
-        double todayTemp, tomorrowTemp;
+        /*double dateDebug = today.get(Calendar.DAY_OF_YEAR);
+        todayTemp = tempMediaAnual - Math.cos(2*Math.PI*((today.get(Calendar.DAY_OF_YEAR) / 365.25) - 1.0/16)) * oscilacionAnual/2
+                + random*3;*/
 
-        double dateDebug = today.get(Calendar.DAY_OF_YEAR);
-        todayTemp = tempMediaAnual - Math.cos(2*Math.PI*((today.get(Calendar.DAY_OF_YEAR) / 365.25) - 1/16)) * oscilacionAnual/2
-                + rnd.nextGaussian()*3;
+        NormalDistribution normal = new NormalDistribution(0, 3);
+
+        prevTemp = tempMediaAnual - Math.cos(2*Math.PI*((previous.get(Calendar.DAY_OF_YEAR) / 365.25) - 1.0/16)) * oscilacionAnual/2
+                + normal.inverseCumulativeProbability(prevRandom);
+
+        Log.v("Inverse1: ",normal.inverseCumulativeProbability(prevRandom)+"");
+
+        /*
 
         Calendar tomorrow = null;
+        tomorrow = (Calendar) today.clone();
+        tomorrow.add(Calendar.DAY_OF_YEAR, 1);
         if(init) {
-            int periodo = 0;
-
-            double debug = today.get(Calendar.MONTH);
-            periodo += 7*(today.get(Calendar.MONTH)/3);
-            int diasem = (Calendar.getInstance().get(Calendar.DAY_OF_WEEK) + 5)%7;
-            periodo += diasem;
-
-            tomorrow = randomDate((periodo + 1)%28,today.get(Calendar.YEAR));
-        } else {
-            tomorrow = (Calendar) today.clone();
-            tomorrow.add(Calendar.DAY_OF_YEAR, 1);
+            tomorrow = getAlternativeDate(today);//randomDate((periodo + 1)%28,today.get(Calendar.YEAR) + (periodo + 1)/28,true);
         }
 
         seed = parseSeed(tomorrow);
-
         rnd.setSeed(seed);
 
-        Log.v("Seed Value Tomorrow", String.valueOf(seed));
+        */
 
-        tomorrowTemp = tempMediaAnual - Math.cos(2*Math.PI*((tomorrow.get(Calendar.DAY_OF_YEAR) / 365.25) - 1/16)) * oscilacionAnual/2
-                + rnd.nextGaussian()*3;
+        //Log.v("Seed Value Tomorrow", String.valueOf(seed));
 
-        Log.v("Forecast","Today "+todayTemp+"\nTomorrow "+tomorrowTemp);
+        nextTemp = tempMediaAnual - Math.cos(2*Math.PI*((next.get(Calendar.DAY_OF_YEAR) / 365.25) - 1.0/16)) * oscilacionAnual/2
+                + normal.inverseCumulativeProbability(nextRandom);
 
-        temperatura = transicion(todayTemp, tomorrowTemp, 0, 1, porcentaje);
+        Log.v("Inverse2: ",normal.inverseCumulativeProbability(nextRandom)+"");
 
-        if (hogwarts.isChecked())
-            textDiff.setText(formatNumber(temperatura, 0) + "° C");
-        else if(altitud != 0)
-            textDiff.setText(formatNumber(temperatura - avgTemp,1) + " °C");
-         else
+        //Log.v("Forecast","Today "+todayTemp+"\nTomorrow "+tomorrowTemp);
+
+        return transicion(prevTemp, nextTemp, previousDateMillis, nextDateMillis, today.getTimeInMillis());
+    }
+    //Updates seasonal temperature (Should be updated at least every minute)
+    public void updateTemperature() {
+        Calendar today = Calendar.getInstance();
+
+        if (!ini) today.set(año, mes - 1, dia);
+
+        temperatura = computeTemperature(today, !ini);
+        if(report)
+        {
+            report = false;
+            showHourlyReport(today);
+        }
+
+        if (ini) today.set(año, mes - 1, dia);
+
+        double actualT;
+        EditText thermometerDisplay = (EditText) findViewById(R.id.thermometer);
+        EditText actualTDisplay = (EditText) findViewById(R.id.actualT);
+        String strThermometer = thermometerDisplay.getText().toString();
+        String strActualT = actualTDisplay.getText().toString();
+        try {
+            actualT = Double.parseDouble(strActualT);
+        } catch (NullPointerException | NumberFormatException e) {
+            actualT = -1000;
+        }
+
+        //If there isn't any value in "Temperatura real" use "Lectura termometro" value.
+        if(actualT == -1000) {
+            findViewById(R.id.thermoBox).setVisibility(View.VISIBLE);
+            try {
+                double thermometer = Double.parseDouble(strThermometer);
+                actualT = thermometer - 2.8;
+            } catch (NullPointerException | NumberFormatException e) {
+                actualT = -999;
+            }
+        } else {
+            findViewById(R.id.thermoBox).setVisibility(View.GONE);
+        }
+
+        if(altitud != 0 && (actualT != -999)) {
+            //double actualT = Double.parseDouble(actualTDisplay.getText().toString());
+            textDiff.setText(formatNumber(temperatura - avgTemp, 1) + " °C");
+
+            if(((RadioGroup)findViewById(R.id.radioScale)).getCheckedRadioButtonId() == R.id.celsius)
+                textTemperatura.setText(formatNumber(actualT + (temperatura - avgTemp),0) + " °C");
+            else if(((RadioGroup)findViewById(R.id.radioScale)).getCheckedRadioButtonId() == R.id.raw)
+                textTemperatura.setText(formatNumber(actualT + (temperatura - avgTemp) + 2.8,1));
+            else
+                textTemperatura.setText(formatNumber((actualT + (temperatura - avgTemp))*1.8 + 32,0) + " °F");
+        }
+        else {
             textDiff.setText("-- °C");
+            if(((RadioGroup)findViewById(R.id.radioScale)).getCheckedRadioButtonId() == R.id.celsius)
+                textTemperatura.setText("-- °C");
+            else if(((RadioGroup)findViewById(R.id.radioScale)).getCheckedRadioButtonId() == R.id.raw)
+                textTemperatura.setText("Lo");
+            else
+                textTemperatura.setText("-- °F");
+        }
 
-        colorear(temperatura * 1.8 + 32);
+        if(diffEnabled())
+            colorear(temperatura * 1.8 + 32);
+        else
+            colorear((actualT + (temperatura - avgTemp)) * 1.8 + 32);
     }
 
     public static long parseSeed(Calendar time)
@@ -552,7 +648,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        C.add((short)0b1010);
+        C.add((short)0b1100);
         for (int i=0; i < M.size(); i++){
             C.add(Epi((short)(C.get(i)^M.get(i))));
         }
@@ -577,10 +673,12 @@ public class MainActivity extends AppCompatActivity {
         return año%4 == 0 && (año%100 != 0 || año%400 == 0);
     }
 
-    public Calendar getDateForToday(){
+    public Calendar getAlternativeDate(Calendar date){
         final long millisInDay = 86400000;
 
-        Calendar now = Calendar.getInstance();
+        //date = resetToMidnight(date);
+        //date.add(Calendar.MINUTE, 1);
+        //Calendar now = Calendar.getInstance();
 
         Calendar y1935 = Calendar.getInstance();
         y1935.set(1935,0,0);
@@ -588,40 +686,39 @@ public class MainActivity extends AppCompatActivity {
         Calendar y2012 = Calendar.getInstance();
         y2012.set(2012,6,29);
 
-        long millis1935 = y1935.getTimeInMillis();
+        //long millis1935 = y1935.getTimeInMillis();
         long millis2012 = y2012.getTimeInMillis();
 
         //System.out.println(millis1935/millisInDay+", "+millis2012/millisInDay);
 
-        long millis = now.getTimeInMillis() - millis2012;
+        long millis = date.getTimeInMillis() - millis2012;
         int days = (int)((365.25/28)*millis/millisInDay);
 
         Calendar returnDate = (Calendar) y1935.clone();
-        //returnDate.add(Calendar.YEAR, years);
+        /*returnDate.add(Calendar.YEAR, years);
+        millis = ((returnDate.getTimeInMillis() + millisInDay/2)/millisInDay)*millisInDay;
+        returnDate.setTimeInMillis(millis);
+        */
+        //Log.v("Datebase",printDate(returnDate));
         returnDate.add(Calendar.DAY_OF_YEAR, days);
-
-        Log.v("Date",returnDate.get(Calendar.DAY_OF_MONTH)+"/"+(returnDate.get(Calendar.MONTH)+1)+"/"+returnDate.get(Calendar.YEAR));
-
+        if(date.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY && returnDate.get(Calendar.MONTH) == Calendar.DECEMBER)
+            returnDate.add(Calendar.DAY_OF_YEAR, 7);
+        if(date.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY && returnDate.get(Calendar.MONTH)%3 == 0)
+            returnDate.add(Calendar.DAY_OF_YEAR, -7);
         int periodo = 0;
-
-        double debug = returnDate.get(Calendar.MONTH);
         periodo += 7*(returnDate.get(Calendar.MONTH)/3);
-        int diasem = (Calendar.getInstance().get(Calendar.DAY_OF_WEEK) + 5)%7;
+        int diasem = (date.get(Calendar.DAY_OF_WEEK) + 5)%7;
         periodo += diasem;
 
-        return randomDate(periodo, returnDate.get(Calendar.YEAR));
+        return randomizeDate(periodo, returnDate.get(Calendar.YEAR), date.get(Calendar.DAY_OF_MONTH));
     }
 
-    public Calendar randomDate(int periodo, int año){
+    public Calendar randomizeDate(int periodo, int año, int dayOfMonth){
 
         int cuatrimestre = periodo/7;
-
         int duracion=0, diasem;
-
         Calendar date = Calendar.getInstance();
-
         diasem = periodo%7;
-
         switch (cuatrimestre)
         {
             case 0:
@@ -644,31 +741,46 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        int addDebug = (int)(diasem*duracion/7.0);
+        //int addDebug = (int)(diasem*duracion/7.0);
         date.add(Calendar.DAY_OF_YEAR, (int)(diasem*duracion/7.0));
 
+        //Calculates seed
         long seed = parseSeed(date);
         Random rnd = new Random(seed);
 
+        //Calculates this date limit. (E.g Limit for a Sunday is the last day of Mar, Jun, Sep and Dec)
         Calendar dateAfter = (Calendar) date.clone();
         dateAfter.add(Calendar.DAY_OF_YEAR, (int)(duracion/7.0));
 
-        Calendar iDate = (Calendar) date.clone();
+        Calendar d = (Calendar) date.clone();
         int i=0;
 
         //If month date equals actual month date, return current date of that month
-        while(iDate.get(Calendar.DAY_OF_MONTH) != dateAfter.get(Calendar.DAY_OF_MONTH) && i < 10000)
+        while(d.get(Calendar.DAY_OF_MONTH) != dateAfter.get(Calendar.DAY_OF_MONTH) && i < 10000)
         {
-            if(iDate.get(Calendar.DAY_OF_MONTH) == Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
-                return iDate;
+            //Calendar tomorrow = Calendar.getInstance();
+            // (isTomorrow) tomorrow.add(Calendar.DAY_OF_YEAR,1);
+            if(d.get(Calendar.DAY_OF_MONTH) == dayOfMonth)
+                return d;
 
-            iDate.add(Calendar.DAY_OF_YEAR,1);
+            d.add(Calendar.DAY_OF_YEAR,1);
             i++;
         }
 
         date.add(Calendar.DAY_OF_YEAR,(int)(rnd.nextDouble()*duracion/7.0));
+        date = resetToMidnight(date);
 
         return date;
+    }
+
+    //Returns in which period is a date of the 28 days period.
+    public int getPeriod(Calendar fictionalDate, Calendar realDate)
+    {
+        int periodo = 0;
+        periodo += 7*(fictionalDate.get(Calendar.MONTH)/3);
+        int diasem = (realDate.get(Calendar.DAY_OF_WEEK) + 5)%7;
+        periodo += diasem;
+        return periodo;
     }
 
     public void enableDatePicker(View v)
@@ -677,6 +789,164 @@ public class MainActivity extends AppCompatActivity {
         spinnerDia.setEnabled(true);
         spinnerMes.setEnabled(true);
         spinnerAño.setEnabled(true);
+        setRandomDayArray(LONG);
+    }
+
+    public void showHourlyReport(View v)
+    {
+        report = true;
+    }
+
+    public void selectorEscala(View v) {
+        RadioGroup escala = (RadioGroup)findViewById(R.id.radioScale);
+        switch (escala.getCheckedRadioButtonId()) {
+            case R.id.celsius:
+                textTemperatura.setText(formatNumber(temperatura, 0) + "°C");
+                break;
+            case R.id.raw:
+                textTemperatura.setText(formatNumber(temperatura + 2.8, 1));
+                break;
+            case R.id.fahrenheit:
+                textTemperatura.setText(formatNumber(temperatura * 1.8 + 32, 0) + "°F");
+                break;
+        }
+    }
+
+    public void checkDiff(View v)
+    {
+        LinearLayout diff = (LinearLayout)findViewById(R.id.diffDisplay);
+        LinearLayout tDisplay = (LinearLayout)findViewById(R.id.temperatureDisplay);
+        if(((CheckBox)v).isChecked())
+        {
+            diff.setVisibility(View.VISIBLE);
+            tDisplay.setVisibility(View.GONE);
+        } else {
+            diff.setVisibility(View.GONE);
+            tDisplay.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void showHourlyReport(Calendar date)
+    {
+        Log.v("Showing","...");
+        int hora = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        //hora = 23;
+        StringBuilder text = new StringBuilder();
+
+        date = resetToMidnight(date);
+
+        for(int i=0; i<hora+1; i++)
+        {
+            double t = computeTemperature(date, !ini);
+            //Log.v("Temperature computed for: "+i+"h",t+"");
+            date.add(Calendar.HOUR_OF_DAY, 1);
+            text.append(i + ":00 "+ formatNumber(t - avgTemp,1) +" °C\n");
+        }
+        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
+    }
+
+    public boolean diffEnabled()
+    {
+        return ((CheckBox) findViewById(R.id.diffCheck)).isChecked();
+    }
+
+    public void setRandomDayArray(int mode)
+    {
+        //HashMap randomDayArray = null; // Null because it must be initialized
+        randomDayArray.clear();
+        int period;
+        Calendar c = Calendar.getInstance();
+        Calendar ad = Calendar.getInstance();
+        if(mode == LONG)
+            c.set(año, 0, 1, 0, 0, 0); //Set Jan 1st/year
+        if(mode == SHORT) {
+            ad = getAlternativeDate(c); //Alternative Date
+            period = getPeriod(ad, c);
+            Log.v("Period",period+"");
+            c.add(Calendar.DAY_OF_YEAR, -period);
+            c = resetToMidnight(c);
+            //c.add(Calendar.MINUTE, 1);
+        }
+        Calendar oneYearLater = null;
+        oneYearLater = (Calendar) c.clone();
+        if(mode == LONG) {
+            Log.v("Now: ",printDate(oneYearLater));
+            oneYearLater.add(Calendar.YEAR, 1); //Set variable for one year timespan
+            Log.v("One year later: ",printDate(oneYearLater));
+        } else if (mode == SHORT) {
+            oneYearLater.add(Calendar.DAY_OF_YEAR, 28);
+        }
+        oneYearLater.add(Calendar.DAY_OF_YEAR, -1); //Avoids big jumps of random variable in December
+        Random rnd = new Random(parseSeed(c));
+        double random = rnd.nextDouble(); //First use of seeded Random instance.
+        //if(mode == SHORT) randomDayArray.add(new TempStamp(ad.getTimeInMillis(), random));
+        //else if (mode == LONG)
+        randomDayArray.add(new TempStamp(c.getTimeInMillis(), random));
+
+        Log.v("1Date: "+printDate(c)+" ("+printDate(getAlternativeDate(c))+")",random+"");
+
+        do {
+            int millis = (int)((rnd.nextDouble()*1.9+0.1)*24*3600*1000); //Random timespan selection between 0.1 - 2 days.
+            //Log.v("Millis: ",millis+"");
+            c.add(Calendar.MILLISECOND, millis);
+            if(c.getTimeInMillis() >= oneYearLater.getTimeInMillis())
+                break;
+
+            double fuzziness = 0.3*millis/(1000*3600*24);
+
+            do {
+                random = random + (rnd.nextDouble() * fuzziness * 2 - fuzziness);
+                //Log.v("Fuzziness", fuzziness+"");
+            } while (random < 0 || random > 1);
+
+            randomDayArray.add(new TempStamp(c.getTimeInMillis(), random));
+
+            if(mode == LONG) Log.v("2Date: "+printDate(c),random+"");
+            else if (mode == SHORT) Log.v("3Date: "+printDate(c)+" ("+printDate(getAlternativeDate(c))+")",random+"");
+        } while(true);
+
+        oneYearLater.add(Calendar.DAY_OF_YEAR, 1);
+        rnd.setSeed(parseSeed(oneYearLater));
+        random = rnd.nextDouble();
+        randomDayArray.add(new TempStamp(oneYearLater.getTimeInMillis(), random));
+        Log.v("4Date: "+printDate(oneYearLater)+" ("+printDate(getAlternativeDate(oneYearLater))+")",random+"");
+    }
+
+    public String printDate(Calendar c)
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm"); //Debug purposes
+        return sdf.format(c.getTime());
+    }
+
+    public Calendar resetToMidnight(Calendar c)
+    {
+        int y, m, d;
+        y = c.get(Calendar.YEAR);
+        m = c.get(Calendar.MONTH);
+        d = c.get(Calendar.DAY_OF_MONTH);
+        c.set(y,m,d,0,0,0);
+        return c;
+    }
+
+    public void viewStations(View v)
+    {
+        String text = formatNumber(temperatura+2.8,1) + '\n';
+
+        for(int i=0;i<3;i++)
+        {
+            try {
+                text += nearestS[i].toString();
+                text += ": ";
+                text += formatNumber(weights[i] * 100, 0) + "%";
+                text += '\n';
+            } catch (NullPointerException e)
+            {
+                text = "Cargando...";
+            }
+        }
+
+        Toast toast = Toast.makeText(this,text,Toast.LENGTH_SHORT);
+        toast.show();
     }
 
     public class Localizacion implements LocationListener {
@@ -696,9 +966,13 @@ public class MainActivity extends AppCompatActivity {
             // Este metodo se ejecuta cada vez que el GPS recibe nuevas coordenadas
             // debido a la deteccion de un cambio de ubicacion
 
-            latitud = loc.getLatitude();
-            longitud = loc.getLongitude();
-            altitud = loc.getAltitude();
+            double a = loc.getAltitude();
+            double lat = loc.getLatitude();
+            double lon = loc.getLongitude();
+
+            if (a != 0) altitud = loc.getAltitude();
+            if (lat != 0 ) latitud = loc.getLatitude();
+            if (lon !=0) longitud = loc.getLongitude();
         }
 
         @Override
