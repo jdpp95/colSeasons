@@ -49,14 +49,16 @@ public class MainActivity extends AppCompatActivity {
     boolean ini = true;
     boolean report = false;
     double[] weights;
+    double centerT;
 
-    public double latitud, longitud, altitud, porcentaje, avgTemp, hora, osD, osN, temperatura;
+    public double latitud, longitud, altitud, porcentaje, avgTemp, avgTemp2, hora, osD, osN, temperatura;
     public int seconds = 0;
     public ArrayList<Estacion> estaciones;
     public Estacion[] nearestS;
     public ArrayList<TempStamp> randomDayArray;
 
     TextView textAltitud, textDiff, textTemperatura;
+    CheckBox centerEnabledCheckBox;
 
     //private final int[] añoNormal = {31,28,31,30,31,30,31,31,30,31,30,31};
     //private final int[] añoBisiesto = {31,29,31,30,31,30,31,31,30,31,30,31};
@@ -68,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //Log.v("Debug","Marco");
         setContentView(R.layout.activity_main);
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null)
+            centerT = bundle.getDouble("CENTER_TEMPERATURE");
+        else
+            centerT = 0;
         //Log.v("Debug","Polo");
         //getWindow().setSoftInputMode(
           //      WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -86,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
         spinnerDia = (Spinner) findViewById(R.id.dia);
         spinnerMes = (Spinner) findViewById(R.id.mes);
         spinnerAño = (Spinner) findViewById(R.id.año);
+        centerEnabledCheckBox = (CheckBox) findViewById(R.id.centerEnabled);
         weights = new double[3];
         today = getAlternativeDate(Calendar.getInstance());
         año = today.get(Calendar.YEAR); spinnerAño.setSelection(añoActual-año); spinnerAño.setEnabled(false);
@@ -226,19 +234,23 @@ public class MainActivity extends AppCompatActivity {
                             //Normalize weights
 
                             for (int i = 0; i < 3; i++) {
-                                /*
-                                if (weightSum > 0)
-                                    weights[i] /= weightSum;
-                                    */
-
-                                //Log.v("Distance to " + nearestS[i], formatNumber(weights[i] * 100, 0) + "% from "+ estaciones.size() +" stations.");
-                                for(int j=0;j<3;j++)
-                                    temp[3][j] += temp[i][j] * weights[i];
+                                for(int j=0;j<3;j++) {
+                                    if (temp[i][0] < 40 || !centerEnabledCheckBox.isChecked())
+                                        temp[3][j] += temp[i][j] * weights[i];
+                                    else if (j == 0){
+                                        temp[3][0] += (centerT + altitud/180) * weights[i];
+                                    }
+                                }
                             }
 
                         }
 
-                        avgTemp = temp[3][0] - altitud/180; //Computes average temp for a place
+                        if(centerEnabledCheckBox.isChecked())
+                            avgTemp2 = temp[3][0] - altitud/180; //Computes average temp for a place
+                        else
+                            avgTemp = temp[3][0] - altitud/180; //Computes average temp for a place
+
+
                         osD = temp[3][1];
                         osN = temp[3][2];
 
@@ -334,6 +346,15 @@ public class MainActivity extends AppCompatActivity {
 
         for (Estacion x : estaciones) {
             float[] results = new float[3];
+            //Log.v(x.getnEstacion(),x.getTemperatura()+" °C");
+            if(centerEnabledCheckBox.isChecked())
+            {
+                if(x.getLatitud() == 4.6381)
+                    continue;
+            } else {
+                if(x.getTemperatura() > 40)
+                    continue;
+            }
             Location.distanceBetween(latitud, longitud, x.getLatitud(), x.getLongitud(), results);
             newDistance = results[0];
             //Log.v("Distance data: ", "Place :" + x + ", distance: " + formatNumber(newDistance / 1000, 1) + "km, initial bearing: " + results[1] + ", final bearing: " + results[2]);
@@ -470,6 +491,7 @@ public class MainActivity extends AppCompatActivity {
         //Random rnd = new Random(seed);
         double oscilacionAnual = (avgTemp * -0.6485 + 28.712) * (osD + osN) / 10;
         double tempMediaAnual = (avgTemp * 5000 - 29571) / 4117;
+
         double prevTemp, nextTemp, prevRandom = 0, nextRandom = 0;
         long previousDateMillis = 0, nextDateMillis = 0;
         int index = 0;
@@ -505,32 +527,19 @@ public class MainActivity extends AppCompatActivity {
                 + random*3;*/
 
         NormalDistribution normal = new NormalDistribution(0, 3);
+        Double nextNormalRnd;
 
-        prevTemp = tempMediaAnual - Math.cos(2*Math.PI*((previous.get(Calendar.DAY_OF_YEAR) / 365.25) - 1.0/16)) * oscilacionAnual/2
-                + normal.inverseCumulativeProbability(prevRandom);
+        nextNormalRnd = normal.inverseCumulativeProbability(prevRandom);
+        if(oscilacionAnual == 0) nextNormalRnd = 0.0;
+        prevTemp = tempMediaAnual - Math.cos(2 * Math.PI * ((previous.get(Calendar.DAY_OF_YEAR) / 365.25) - 1.0 / 16)) * oscilacionAnual / 2
+                + nextNormalRnd;
 
-        Log.v("Inverse1: ",normal.inverseCumulativeProbability(prevRandom)+"");
+        nextNormalRnd = normal.inverseCumulativeProbability(prevRandom);
 
-        /*
+        nextTemp = tempMediaAnual - Math.cos(2 * Math.PI * ((next.get(Calendar.DAY_OF_YEAR) / 365.25) - 1.0 / 16)) * oscilacionAnual / 2
+                + nextNormalRnd;
 
-        Calendar tomorrow = null;
-        tomorrow = (Calendar) today.clone();
-        tomorrow.add(Calendar.DAY_OF_YEAR, 1);
-        if(init) {
-            tomorrow = getAlternativeDate(today);//randomDate((periodo + 1)%28,today.get(Calendar.YEAR) + (periodo + 1)/28,true);
-        }
-
-        seed = parseSeed(tomorrow);
-        rnd.setSeed(seed);
-
-        */
-
-        //Log.v("Seed Value Tomorrow", String.valueOf(seed));
-
-        nextTemp = tempMediaAnual - Math.cos(2*Math.PI*((next.get(Calendar.DAY_OF_YEAR) / 365.25) - 1.0/16)) * oscilacionAnual/2
-                + normal.inverseCumulativeProbability(nextRandom);
-
-        Log.v("Inverse2: ",normal.inverseCumulativeProbability(nextRandom)+"");
+        //Log.v("Inverse2: ",normal.inverseCumulativeProbability(nextRandom)+"");
 
         //Log.v("Forecast","Today "+todayTemp+"\nTomorrow "+tomorrowTemp);
 
@@ -947,6 +956,12 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(this,text,Toast.LENGTH_SHORT);
         toast.show();
+    }
+
+    public void editCenterData(View v)
+    {
+        Intent intent = new Intent(this, CenterActivity.class);
+        startActivity(intent);
     }
 
     public class Localizacion implements LocationListener {

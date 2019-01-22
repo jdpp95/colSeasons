@@ -182,8 +182,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:checked="true"
-                            android:text="°C"
-                            app:buttonTint="#ffffff" />
+                            android:text="°C" />
 
                         <RadioButton
                             android:id="@+id/raw"
@@ -191,16 +190,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:checked="true"
-                            android:text="raw"
-                            app:buttonTint="#ffffff" />
+                            android:text="raw" />
 
                         <RadioButton
                             android:id="@+id/fahrenheit"
                             style="@style/radios"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="°F"
-                            app:buttonTint="#ffffff" />
+                            android:text="°F" />
 
                     </RadioGroup>
 
@@ -275,7 +272,23 @@
                             android:textColorHint="#B0B0B0" />
                     </LinearLayout>
                 </LinearLayout>
-
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckBox
+                        android:id="@+id/centerEnabled"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Center"
+                        android:textColor="@android:color/white"/>
+                    <Button
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Edit data"
+                        android:onClick="editCenterData"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

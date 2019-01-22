@@ -266,4 +266,5 @@
         <item>1902</item>
         <item>1901</item>
     </string-array>
+    <string name="title_activity_center">CenterActivity</string>
 </resources>
