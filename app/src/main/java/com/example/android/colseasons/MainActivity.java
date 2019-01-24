@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     double[] weights;
     double centerT;
 
-    public double latitud, longitud, altitud, porcentaje, avgTemp, avgTemp2, hora, osD, osN, temperatura;
+    public double latitud, longitud, altitud, porcentaje, avgTemp, hora, osD, osN, temperatura;
     public int seconds = 0;
     public ArrayList<Estacion> estaciones;
     public Estacion[] nearestS;
@@ -235,22 +235,12 @@ public class MainActivity extends AppCompatActivity {
 
                             for (int i = 0; i < 3; i++) {
                                 for(int j=0;j<3;j++) {
-                                    if (temp[i][0] < 40 || !centerEnabledCheckBox.isChecked())
-                                        temp[3][j] += temp[i][j] * weights[i];
-                                    else if (j == 0){
-                                        temp[3][0] += (centerT + altitud/180) * weights[i];
-                                    }
+                                    temp[3][j] += temp[i][j] * weights[i];
                                 }
                             }
-
                         }
 
-                        if(centerEnabledCheckBox.isChecked())
-                            avgTemp2 = temp[3][0] - altitud/180; //Computes average temp for a place
-                        else
-                            avgTemp = temp[3][0] - altitud/180; //Computes average temp for a place
-
-
+                        avgTemp = temp[3][0] - altitud/180; //Computes average temp for a place
                         osD = temp[3][1];
                         osN = temp[3][2];
 
@@ -346,15 +336,6 @@ public class MainActivity extends AppCompatActivity {
 
         for (Estacion x : estaciones) {
             float[] results = new float[3];
-            //Log.v(x.getnEstacion(),x.getTemperatura()+" °C");
-            if(centerEnabledCheckBox.isChecked())
-            {
-                if(x.getLatitud() == 4.6381)
-                    continue;
-            } else {
-                if(x.getTemperatura() > 40)
-                    continue;
-            }
             Location.distanceBetween(latitud, longitud, x.getLatitud(), x.getLongitud(), results);
             newDistance = results[0];
             //Log.v("Distance data: ", "Place :" + x + ", distance: " + formatNumber(newDistance / 1000, 1) + "km, initial bearing: " + results[1] + ", final bearing: " + results[2]);
@@ -530,7 +511,6 @@ public class MainActivity extends AppCompatActivity {
         Double nextNormalRnd;
 
         nextNormalRnd = normal.inverseCumulativeProbability(prevRandom);
-        if(oscilacionAnual == 0) nextNormalRnd = 0.0;
         prevTemp = tempMediaAnual - Math.cos(2 * Math.PI * ((previous.get(Calendar.DAY_OF_YEAR) / 365.25) - 1.0 / 16)) * oscilacionAnual / 2
                 + nextNormalRnd;
 
