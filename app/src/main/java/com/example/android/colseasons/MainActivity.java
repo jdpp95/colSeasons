@@ -22,7 +22,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
-import android.widget.CheckBox;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -39,6 +38,10 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.HashMap;
+
+/*
+* This spaghetti code has to be fixed
+* */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     //private final int[] añoNormal = {31,28,31,30,31,30,31,31,30,31,30,31};
     //private final int[] añoBisiesto = {31,29,31,30,31,30,31,31,30,31,30,31};
-    private final int añoActual = 2019;
+    private final int añoActual = 2043;
     private final int SHORT = 0, LONG = 1;
 
     @Override
@@ -96,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         centerEnabledCheckBox = (CheckBox) findViewById(R.id.centerEnabled);
         weights = new double[3];
         today = getAlternativeDate(Calendar.getInstance());
-        año = today.get(Calendar.YEAR); spinnerAño.setSelection(añoActual-año); spinnerAño.setEnabled(false);
+        año = today.get(Calendar.YEAR); spinnerAño.setSelection(añoActual - año); spinnerAño.setEnabled(false);
         mes = today.get(Calendar.MONTH); spinnerMes.setSelection(mes); spinnerMes.setEnabled(false);
         dia = time.get(Calendar.DATE);
         randomDayArray = new ArrayList<>();
@@ -189,14 +192,11 @@ public class MainActivity extends AppCompatActivity {
                          */
                         double temp[][] = new double[4][3];
 
-                        /* hora = 12 + 35/60.0;
-                        latitud = 4.6238;
-                        longitud = -74.0828;
-                        altitud = 2574;
-                        */
-
                         if (seconds%2 == 0) updateTime();
-                        if (seconds == 5) nearestS = nearestStations();
+                        if (seconds == 5) {
+                            //alterLocation();
+                            nearestS = nearestStations();
+                        }
 
                         if(nearestS == null)
                             Log.e("Error","Nearest stations error");
@@ -207,6 +207,8 @@ public class MainActivity extends AppCompatActivity {
                             double weightsDist[] = new double[3];
                             double weightsAlt[] = new double[3];
                             double altDiff[] = new double[3];
+
+                            //alterLocation();
 
                             double weightsDistSum = 0, weightsAltSum = 0;
                             for (int i = 0; i < 3; i++) {
@@ -373,38 +375,38 @@ public class MainActivity extends AppCompatActivity {
         int rgb[] = new int[3];
         final int[] FRIGID = {0, 0, 255};
         final int[] FREEZING = {0, 255, 255};
-        final int[] CHILLY = {0, 192, 128};
+        final int[] CHILLY = {0, 224, 128};
         final int[] COLD = {0, 128, 0};
-        final int[] COOL = {128, 192, 0};
+        final int[] COOL = {152, 255, 0};
         final int[] COMFORTABLE = {255, 255, 0};
-        final int[] WARM = {255, 128, 0};
-        final int[] HOT = {255, 0, 0};
-        final int[] SWELTERING = {128, 0, 0};
+        final int[] WARM = {255, 192, 0};
+        final int[] HOT = {255, 128, 0};
+        final int[] SWELTERING = {255, 0, 0};
 
         if (temperatura < 0) {
             for (int i = 0; i < rgb.length; i++)
                 rgb[i] = 255;
-        } else if (temperatura < 21) {
+        } else if (temperatura < 14) {
             for (int i = 0; i < rgb.length; i++)
-                rgb[i] = (int) (transicion(255, FRIGID[i], 0, 21, temperatura) + 0.5);
+                rgb[i] = (int) (transicion(255, FRIGID[i], 0, 14, temperatura) + 0.5);
         } else if (temperatura < 32) {
             for (int i = 0; i < rgb.length; i++)
-                rgb[i] = (int) (transicion(FRIGID[i], FREEZING[i], 21, 32, temperatura) + 0.5);
+                rgb[i] = (int) (transicion(FRIGID[i], FREEZING[i], 14, 32, temperatura) + 0.5);
         } else if (temperatura < 41) {
             for (int i = 0; i < rgb.length; i++)
                 rgb[i] = (int) (transicion(FREEZING[i], CHILLY[i], 32, 41, temperatura) + 0.5);
         } else if (temperatura < 50) {
             for (int i = 0; i < rgb.length; i++)
-                rgb[i] = (int) (transicion(CHILLY[i], COLD[i], 40, 50, temperatura) + 0.5);
-        } else if (temperatura < 60) {
+                rgb[i] = (int) (transicion(CHILLY[i], COLD[i], 41, 50, temperatura) + 0.5);
+        } else if (temperatura < 55.4) {
             for (int i = 0; i < rgb.length; i++)
-                rgb[i] = (int) (transicion(COLD[i], COOL[i], 50, 60, temperatura) + 0.5);
-        } else if (temperatura < 70) {
+                rgb[i] = (int) (transicion(COLD[i], COOL[i], 50, 55.4, temperatura) + 0.5);
+        } else if (temperatura < 68) {
             for (int i = 0; i < rgb.length; i++)
-                rgb[i] = (int) (transicion(COOL[i], COMFORTABLE[i], 60, 70, temperatura) + 0.5);
+                rgb[i] = (int) (transicion(COOL[i], COMFORTABLE[i], 55.4, 68, temperatura) + 0.5);
         } else if (temperatura < 80) {
             for (int i = 0; i < rgb.length; i++)
-                rgb[i] = (int) (transicion(COMFORTABLE[i], WARM[i], 70, 80, temperatura) + 0.5);
+                rgb[i] = (int) (transicion(COMFORTABLE[i], WARM[i], 68, 80, temperatura) + 0.5);
         } else if (temperatura < 90) {
             for (int i = 0; i < rgb.length; i++)
                 rgb[i] = (int) (transicion(WARM[i], HOT[i], 80, 90, temperatura) + 0.5);
@@ -434,7 +436,7 @@ public class MainActivity extends AppCompatActivity {
                 textTemperatura.setBackgroundColor(Color.rgb(rgb[0], rgb[1], rgb[2]));
                 main.setBackgroundColor(Color.BLACK);
 
-                if (temperatura > 25 && temperatura < 35 || temperatura > 60 && temperatura < 80)
+                if (temperatura > 25 && temperatura < 35 || temperatura > 55 && temperatura < 90)
                     textTemperatura.setTextColor(Color.BLACK);
                 else
                     textTemperatura.setTextColor(Color.WHITE);
@@ -446,7 +448,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         for(int i=0; i<texts.length; i++)
-            if (temperatura > 25 && temperatura < 35 || temperatura > 60 && temperatura < 80)
+            if (temperatura > 25 && temperatura < 35 || temperatura > 60 && temperatura < 90)
                 texts[i].setTextColor(Color.BLACK);
             else
                 texts[i].setTextColor(Color.WHITE);
@@ -460,7 +462,7 @@ public class MainActivity extends AppCompatActivity {
         return start1 + (end1 - start1) * proporcion;
     }
 
-    public double computeTemperature(Calendar today, boolean real)
+    public double computeTemperature(Calendar today, boolean real, double avgT)
     {
         //Calendar today = Calendar.getInstance();
         Calendar previous = Calendar.getInstance();
@@ -470,8 +472,8 @@ public class MainActivity extends AppCompatActivity {
         //Log.v("Seed Value", String.valueOf(seed));
 
         //Random rnd = new Random(seed);
-        double oscilacionAnual = (avgTemp * -0.6485 + 28.712) * (osD + osN) / 10;
-        double tempMediaAnual = (avgTemp * 5000 - 29571) / 4117;
+        double oscilacionAnual = (avgT * -0.6485 + 28.712) * (osD + osN) / 10;
+        double tempMediaAnual = (avgT * 5000 - 29571) / 4117;
 
         double prevTemp, nextTemp, prevRandom = 0, nextRandom = 0;
         long previousDateMillis = 0, nextDateMillis = 0;
@@ -514,7 +516,9 @@ public class MainActivity extends AppCompatActivity {
         prevTemp = tempMediaAnual - Math.cos(2 * Math.PI * ((previous.get(Calendar.DAY_OF_YEAR) / 365.25) - 1.0 / 16)) * oscilacionAnual / 2
                 + nextNormalRnd;
 
-        nextNormalRnd = normal.inverseCumulativeProbability(prevRandom);
+        //Log.v("Random", nextNormalRnd+" Base: "+prevRandom);
+
+        nextNormalRnd = normal.inverseCumulativeProbability(nextRandom);
 
         nextTemp = tempMediaAnual - Math.cos(2 * Math.PI * ((next.get(Calendar.DAY_OF_YEAR) / 365.25) - 1.0 / 16)) * oscilacionAnual / 2
                 + nextNormalRnd;
@@ -528,10 +532,11 @@ public class MainActivity extends AppCompatActivity {
     //Updates seasonal temperature (Should be updated at least every minute)
     public void updateTemperature() {
         Calendar today = Calendar.getInstance();
+        //double avgTemp2 = 14.1;
 
         if (!ini) today.set(año, mes - 1, dia);
 
-        temperatura = computeTemperature(today, !ini);
+        temperatura = computeTemperature(today, !ini, avgTemp);
         if(report)
         {
             report = false;
@@ -556,6 +561,10 @@ public class MainActivity extends AppCompatActivity {
             findViewById(R.id.thermoBox).setVisibility(View.VISIBLE);
             try {
                 double thermometer = Double.parseDouble(strThermometer);
+
+                //If value given is greater than 40°, °F is assumedff
+                if(thermometer > 40)
+                    thermometer = (thermometer - 32) * 5 / 9;
                 actualT = thermometer - 2.8;
             } catch (NullPointerException | NumberFormatException e) {
                 actualT = -999;
@@ -564,16 +573,24 @@ public class MainActivity extends AppCompatActivity {
             findViewById(R.id.thermoBox).setVisibility(View.GONE);
         }
 
+        double diff = temperatura - avgTemp;
+        double finalTemp = actualT + diff;
+
+        if(centerEnabledCheckBox.isChecked())
+            finalTemp = transicion(finalTemp, centerT, 0, 1, closenessToUniversity(finalTemp - centerT));
+
         if(altitud != 0 && (actualT != -999)) {
+            //double alteredT = avgTemp; // Replace by 14.1
             //double actualT = Double.parseDouble(actualTDisplay.getText().toString());
-            textDiff.setText(formatNumber(temperatura - avgTemp, 1) + " °C");
+
+            textDiff.setText(formatNumber(diff, 1) + " °C");
 
             if(((RadioGroup)findViewById(R.id.radioScale)).getCheckedRadioButtonId() == R.id.celsius)
-                textTemperatura.setText(formatNumber(actualT + (temperatura - avgTemp),0) + " °C");
+                textTemperatura.setText(formatNumber(finalTemp,0) + " °C");
             else if(((RadioGroup)findViewById(R.id.radioScale)).getCheckedRadioButtonId() == R.id.raw)
-                textTemperatura.setText(formatNumber(actualT + (temperatura - avgTemp) + 2.8,1));
+                textTemperatura.setText(formatNumber(finalTemp + 2.8,1));
             else
-                textTemperatura.setText(formatNumber((actualT + (temperatura - avgTemp))*1.8 + 32,0) + " °F");
+                textTemperatura.setText(formatNumber(finalTemp*1.8 + 32,0) + " °F");
         }
         else {
             textDiff.setText("-- °C");
@@ -588,7 +605,7 @@ public class MainActivity extends AppCompatActivity {
         if(diffEnabled())
             colorear(temperatura * 1.8 + 32);
         else
-            colorear((actualT + (temperatura - avgTemp)) * 1.8 + 32);
+            colorear(finalTemp * 1.8 + 32);
     }
 
     public static long parseSeed(Calendar time)
@@ -682,6 +699,7 @@ public class MainActivity extends AppCompatActivity {
 
         long millis = date.getTimeInMillis() - millis2012;
         int days = (int)((365.25/28)*millis/millisInDay);
+        //Log.v("Millis: ",date.getTimeInMillis()+"");
 
         Calendar returnDate = (Calendar) y1935.clone();
         /*returnDate.add(Calendar.YEAR, years);
@@ -690,10 +708,13 @@ public class MainActivity extends AppCompatActivity {
         */
         //Log.v("Datebase",printDate(returnDate));
         returnDate.add(Calendar.DAY_OF_YEAR, days);
-        if(date.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY && returnDate.get(Calendar.MONTH) == Calendar.DECEMBER)
-            returnDate.add(Calendar.DAY_OF_YEAR, 7);
-        if(date.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY && returnDate.get(Calendar.MONTH)%3 == 0)
-            returnDate.add(Calendar.DAY_OF_YEAR, -7);
+        if(date.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY && (
+                returnDate.get(Calendar.MONTH) == Calendar.APRIL ||
+                returnDate.get(Calendar.MONTH) == Calendar.DECEMBER))
+            returnDate.add(Calendar.DAY_OF_YEAR, 10);
+        //Log.v("New date",printDate(returnDate));
+        while(date.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY && returnDate.get(Calendar.MONTH)%3 == 0)
+            returnDate.add(Calendar.DAY_OF_YEAR, -1);
         int periodo = 0;
         periodo += 7*(returnDate.get(Calendar.MONTH)/3);
         int diasem = (date.get(Calendar.DAY_OF_WEEK) + 5)%7;
@@ -819,14 +840,17 @@ public class MainActivity extends AppCompatActivity {
     {
         Log.v("Showing","...");
         int hora = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        nearestS = nearestStations();
         //hora = 23;
         StringBuilder text = new StringBuilder();
 
         date = resetToMidnight(date);
 
+        //double avgTemp2 = 14.1;
+
         for(int i=0; i<hora+1; i++)
         {
-            double t = computeTemperature(date, !ini);
+            double t = computeTemperature(date, !ini, avgTemp);
             //Log.v("Temperature computed for: "+i+"h",t+"");
             date.add(Calendar.HOUR_OF_DAY, 1);
             text.append(i + ":00 "+ formatNumber(t - avgTemp,1) +" °C\n");
@@ -872,7 +896,7 @@ public class MainActivity extends AppCompatActivity {
         //else if (mode == LONG)
         randomDayArray.add(new TempStamp(c.getTimeInMillis(), random));
 
-        Log.v("1Date: "+printDate(c)+" ("+printDate(getAlternativeDate(c))+")",random+"");
+        Log.v("Date","\t"+printDate(c)+"\t"+Double.toString(random).replace(".",","));
 
         do {
             int millis = (int)((rnd.nextDouble()*1.9+0.1)*24*3600*1000); //Random timespan selection between 0.1 - 2 days.
@@ -890,15 +914,14 @@ public class MainActivity extends AppCompatActivity {
 
             randomDayArray.add(new TempStamp(c.getTimeInMillis(), random));
 
-            if(mode == LONG) Log.v("2Date: "+printDate(c),random+"");
-            else if (mode == SHORT) Log.v("3Date: "+printDate(c)+" ("+printDate(getAlternativeDate(c))+")",random+"");
+            Log.v("Date","\t"+printDate(c)+"\t("+printDate(this.getAlternativeDate(c))+")\t"+Double.toString(random).replace(".",","));
         } while(true);
 
         oneYearLater.add(Calendar.DAY_OF_YEAR, 1);
         rnd.setSeed(parseSeed(oneYearLater));
         random = rnd.nextDouble();
         randomDayArray.add(new TempStamp(oneYearLater.getTimeInMillis(), random));
-        Log.v("4Date: "+printDate(oneYearLater)+" ("+printDate(getAlternativeDate(oneYearLater))+")",random+"");
+        Log.v("Date","\t"+printDate(c)+"\t"+Double.toString(random).replace(".",","));
     }
 
     public String printDate(Calendar c)
@@ -919,7 +942,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void viewStations(View v)
     {
-        String text = formatNumber(temperatura+2.8,1) + '\n';
+        String text = formatNumber((28.234 - temperatura)*180,1) + '\n';
 
         for(int i=0;i<3;i++)
         {
@@ -944,6 +967,40 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public double closenessToUniversity(double difference)
+    {
+        //final double LAT = 4.6349, LONG = -74.0803; //Entrace by 45th street
+        final double LAT = 4.7017, LONG = -74.0518; //ITAC
+        float results[] = new float[2];
+        Location.distanceBetween(latitud, longitud, LAT, LONG, results);
+        double limit = 17000;
+
+        if (Math.abs(difference*1000) < limit) limit = Math.abs(difference*1000);
+
+        double distance = 0;
+
+        if(results[0] > limit) distance = 0;
+        else if(Math.abs(difference*1000) < limit/2) {
+            distance = (limit*2 - results[0])/(limit*2);
+        }
+        else distance = (limit - results[0])/limit;
+
+        Log.v("Closeness to UN", formatNumber(distance*100, 0) + "%");
+        return distance;
+    }
+
+    /*
+    public void alterLocation(){
+        //hora = 6 + 0.0/60;
+        //5.8676238,-72.9903201
+        latitud = 4.6129;
+        longitud = -74.201;
+        altitud = 2541;
+        avgTemp = 14.1;
+        nearestS = nearestStations();
+    }
+    */
+
     public class Localizacion implements LocationListener {
 
         MainActivity mainActivity;
@@ -966,7 +1023,7 @@ public class MainActivity extends AppCompatActivity {
             double lon = loc.getLongitude();
 
             if (a != 0) altitud = loc.getAltitude();
-            if (lat != 0 ) latitud = loc.getLatitude();
+            if (lat != 0) latitud = loc.getLatitude();
             if (lon !=0) longitud = loc.getLongitude();
         }
 

@@ -240,7 +240,7 @@
                             android:layout_width="48dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:inputType="numberDecimal"
+                            android:inputType="numberDecimal|numberSigned"
                             android:text=""
                             android:textColor="#ffffff"
                             android:textColorHint="#B0B0B0" />
@@ -266,7 +266,7 @@
                             android:layout_width="48dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:inputType="numberDecimal"
+                            android:inputType="numberDecimal|numberSigned"
                             android:text=""
                             android:textColor="#ffffff"
                             android:textColorHint="#B0B0B0" />
