@@ -65,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
     //private final int[] añoNormal = {31,28,31,30,31,30,31,31,30,31,30,31};
     //private final int[] añoBisiesto = {31,29,31,30,31,30,31,31,30,31,30,31};
-    private final int añoActual = 2043;
+    private final int añoActual = 1983;
+    private final double THERMOMETER_DIFF = 1.5;
     private final int SHORT = 0, LONG = 1;
 
     @Override
@@ -469,11 +470,19 @@ public class MainActivity extends AppCompatActivity {
         Calendar next = Calendar.getInstance();
 
         long seed = parseSeed(today);
-        //Log.v("Seed Value", String.valueOf(seed));
+        //Log.v("Seed Value", String.valueOf(seed));.
+
 
         //Random rnd = new Random(seed);
-        double oscilacionAnual = (avgT * -0.6485 + 28.712) * (osD + osN) / 10;
-        double tempMediaAnual = (avgT * 5000 - 29571) / 4117;
+        //double oscilacionAnual = (avgT * -0.6485 + 28.712) * (osD + osN) / 10;
+        //double tempMediaAnual = (avgT * 5000 - 29571) / 4117;
+        double rawWinter = 8 - (8.1 + 10.2)/2;
+
+        final double WINTER_T = rawWinter;
+        final double SUMMER_T = 24.5;
+
+        double oscilacionAnual = (SUMMER_T - WINTER_T);
+        double tempMediaAnual = (WINTER_T + SUMMER_T)/2;
 
         double prevTemp, nextTemp, prevRandom = 0, nextRandom = 0;
         long previousDateMillis = 0, nextDateMillis = 0;
@@ -565,7 +574,7 @@ public class MainActivity extends AppCompatActivity {
                 //If value given is greater than 40°, °F is assumedff
                 if(thermometer > 40)
                     thermometer = (thermometer - 32) * 5 / 9;
-                actualT = thermometer - 2.8;
+                actualT = thermometer - THERMOMETER_DIFF;
             } catch (NullPointerException | NumberFormatException e) {
                 actualT = -999;
             }
@@ -588,7 +597,7 @@ public class MainActivity extends AppCompatActivity {
             if(((RadioGroup)findViewById(R.id.radioScale)).getCheckedRadioButtonId() == R.id.celsius)
                 textTemperatura.setText(formatNumber(finalTemp,0) + " °C");
             else if(((RadioGroup)findViewById(R.id.radioScale)).getCheckedRadioButtonId() == R.id.raw)
-                textTemperatura.setText(formatNumber(finalTemp + 2.8,1));
+                textTemperatura.setText(formatNumber(finalTemp + THERMOMETER_DIFF,1));
             else
                 textTemperatura.setText(formatNumber(finalTemp*1.8 + 32,0) + " °F");
         }
@@ -814,7 +823,7 @@ public class MainActivity extends AppCompatActivity {
                 textTemperatura.setText(formatNumber(temperatura, 0) + "°C");
                 break;
             case R.id.raw:
-                textTemperatura.setText(formatNumber(temperatura + 2.8, 1));
+                textTemperatura.setText(formatNumber(temperatura + THERMOMETER_DIFF, 1));
                 break;
             case R.id.fahrenheit:
                 textTemperatura.setText(formatNumber(temperatura * 1.8 + 32, 0) + "°F");
@@ -906,11 +915,13 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             double fuzziness = 0.3*millis/(1000*3600*24);
+            double nextRandom = 0;
 
             do {
-                random = random + (rnd.nextDouble() * fuzziness * 2 - fuzziness);
+                nextRandom = random + (rnd.nextDouble() * fuzziness * 2 - fuzziness);
                 //Log.v("Fuzziness", fuzziness+"");
-            } while (random < 0 || random > 1);
+            } while (nextRandom < 0 || nextRandom > 1);
+            random = nextRandom;
 
             randomDayArray.add(new TempStamp(c.getTimeInMillis(), random));
 
