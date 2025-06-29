@@ -479,7 +479,7 @@ public class MainActivity extends AppCompatActivity {
         double rawWinter = 8 - (8.1 + 10.2)/2;
 
         final double WINTER_T = rawWinter;
-        final double SUMMER_T = 24.5;
+        final double SUMMER_T = 25;
 
         double oscilacionAnual = (SUMMER_T - WINTER_T);
         double tempMediaAnual = (WINTER_T + SUMMER_T)/2;
